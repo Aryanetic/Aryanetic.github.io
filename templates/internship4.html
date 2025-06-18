@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPA Internship - Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Navigation Styles */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow-1);
+            padding: 0.3rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow-2);
+            border-radius: 10px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0.2rem 0;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .dropdown-content a i {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow-2);
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        .dropdown-content a.has-submenu::after {
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+        }
+
+        .menu-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 0.5rem 1.2rem;
+            border-bottom: 1px solid var(--light-bg);
+            margin-bottom: 0.5rem;
+        }
+
+        .analytics-link {
+            background: var(--gradient-1);
+            color: var(--white) !important;
+        }
+
+        .analytics-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-top: 70px; /* Add padding for fixed navbar */
+        }
+
+        .supa-header {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--gradient-1);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .supa-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .supa-header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .supa-header .tagline {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .supa-content {
+            max-width: 1200px;
+            margin: -50px auto 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-1);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #3F51B5;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #9FA8DA;
+            border-radius: 3px;
+        }
+
+        .events-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .event-item {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .event-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .event-item p {
+            color: var(--text-color);
+            font-size: 0.9em;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .key-learning {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .skill-tag {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-1);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tool-card {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2);
+            background: var(--light-bg);
+        }
+
+        .tool-card i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .tool-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .know-more {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .know-more a {
+            display: inline-block;
+            background: linear-gradient(135deg, #E8EAF6 0%, #C5CAE9 100%);
+            color: #3F51B5;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(63, 81, 181, 0.1);
+            border: 1px solid #C5CAE9;
+        }
+
+        .know-more a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(63, 81, 181, 0.15);
+            background: linear-gradient(135deg, #C5CAE9 0%, #9FA8DA 100%);
+            color: #1A237E;
+        }
+
+        .know-more a i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .know-more a:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .supa-header h1 {
+                font-size: 2em;
+            }
+            
+            .supa-header .tagline {
+                font-size: 1.2em;
+            }
+
+            .events-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-1);
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-size: 0.9em;
+        }
+
+        .back-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .overview-section {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-1);
+        }
+
+        .overview-section h2 {
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .overview-item {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-1);
+            transition: all 0.3s ease;
+        }
+
+        .overview-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+            background: var(--light-bg);
+        }
+
+        .overview-item h3 {
+            font-size: 0.9em;
+            color: var(--text-color);
+            margin-bottom: 8px;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+
+        .overview-item p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .overview-item.achievement p {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+
+        .responsibility-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .responsibility-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-left: 5px;
+        }
+
+        .responsibility-list li i {
+            color: var(--primary-color);
+            margin-top: 3px;
+        }
+
+        .responsibility-list li p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-button {
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 20px;
+            }
+        }
+
+        .internship-hero {
+            background: var(--gradient-1);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .internship-hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .internship-hero .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .animated-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.1) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.1) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            animation: graphMove 20s linear infinite;
+            z-index: 1;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 4s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        @keyframes graphMove {
+            0% {
+                background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            }
+            100% {
+                background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 0.9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-text">Arya Ranjan</a>
+            <div class="nav-links">
+                <a href="/#about"><i class="fas fa-user"></i> About</a>
+                <div class="dropdown" id="workDropdown">
+                    <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Select Category</div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'internshipSubmenu')">
+                            <i class="fas fa-graduation-cap"></i> Internships
+                        </a>
+                        <div class="submenu" id="internshipSubmenu">
+                            <div class="menu-title">Internship Programs</div>
+                            <a href="/internship1"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
+                            <a href="/internship2"><i class="fas fa-building"></i> Graduate Training Program</a>
+                            <a href="/internship3"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
+                            <a href="/internship4"><i class="fas fa-users"></i> SUPA Internship</a>
+                            <a href="/internship5"><i class="fas fa-handshake"></i> Customer Relationship</a>
+                        </div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
+                            <i class="fas fa-project-diagram"></i> Projects
+                        </a>
+                        <div class="submenu" id="projectSubmenu">
+                            <div class="menu-title">Project Portfolio</div>
+                            <a href="/project1"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
+                            <a href="/project2"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
+                            <a href="/project3"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
+                            <a href="/project4"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
+                        </div>
+                        <a href="/experience"><i class="fas fa-building"></i> Work Experience</a>
+                    </div>
+                </div>
+                <a href="/#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/analytics" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="internship-hero animated-bg">
+        <div class="container">
+        <h1>SUPA - SOCIALLY USEFUL AND PRODUCTIVE</h1>
+            <div class="subtitle">Empowering Communities Through Social Innovation</div>
+            <p>Aasha Infinite Solution</p>
+        </div>
+    </div>
+
+    <div class="supa-content">
+        <div class="overview-section">
+            <h2>Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <h3>Duration</h3>
+                    <p>3 Weeks</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Organization</h3>
+                    <p>Aasha Infinite Solution</p>
+                </div>
+                <div class="overview-item">
+                    <h3>Role</h3>
+                    <p>Social Media & Event Coordinator</p>
+                </div>
+                <div class="overview-item achievement">
+                    <h3>Achievement</h3>
+                    <p>Successfully organized multiple marketing and fundraising events</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>This was the initiative from XIME where I got the opportunity to work with an NGO for 1 month. We organized numerous events to increase brand awareness of the NGO, designed content for social media channels, and created activities for students to help them improve their language skills.</p>
+        </div>
+
+        <div class="section">
+            <h2>Key Responsibilities</h2>
+            <ul class="responsibility-list">
+                <li>
+                    <i class="fas fa-paint-brush"></i>
+                    <p>Created engaging social media posters to enhance NGO's online presence and marketing efforts</p>
+                </li>
+                <li>
+                    <i class="fas fa-calendar-check"></i>
+                    <p>Organized community events to boost NGO's brand awareness and fundraising initiatives</p>
+                </li>
+                <li>
+                    <i class="fas fa-trophy"></i>
+                    <p>Coordinated and judged drawing competitions in local schools to promote creative expression</p>
+                </li>
+                <li>
+                    <i class="fas fa-gamepad"></i>
+                    <p>Developed interactive learning activities to make education more engaging for children</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Events</h2>
+            <div class="events-list">
+                <div class="event-item">
+                    <h3>Online Game - Valorant</h3>
+                    <p>We organized an inter-college online game competition with a minimum entry fee. This event helped to collect donations as well as increase brand awareness.</p>
+                </div>
+
+                <div class="event-item">
+                    <h3>Government School Initiative</h3>
+                    <p>We visited local government schools twice where we taught students and arranged drawing competitions. We helped students to have education in a creative way.</p>
+                </div>
+
+                <div class="event-item">
+                    <h3>NGO Meela</h3>
+                    <p>We went to different college fests to promote the brand there.</p>
+                </div>
+
+                <div class="event-item">
+                    <h3>Course Creation</h3>
+                    <p>We designed various fun activities for children to make education interesting and creative.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Key Learnings</h2>
+            <div class="key-learning">
+                <span class="skill-tag">Event Marketing</span>
+                <span class="skill-tag">Social Media Marketing</span>
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Team Management</span>
+                <span class="skill-tag">Event Management</span>
+                <span class="skill-tag">Fundraising</span>
+                <span class="skill-tag">Grant Writing</span>
+                <span class="skill-tag">Research</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Content Creation</span>
+                <span class="skill-tag">Digital Strategy</span>
+                <span class="skill-tag">Campaign Planning</span>
+                <span class="skill-tag">Brand Management</span>
+                <span class="skill-tag">SEO & SEM</span>
+                <span class="skill-tag">Analytics & Reporting</span>
+                <span class="skill-tag">Community Engagement</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Canva</h3>
+                    <p>Graphic Design & Content Creation</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Social Media Platforms</h3>
+                    <p>Facebook, Instagram, LinkedIn</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <h3>Google Analytics</h3>
+                    <p>Performance Tracking</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Microsoft Office</h3>
+                    <p>Documentation & Reporting</p>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Tools</h3>
+                    <p>Content Generation & Analysis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="know-more">
+            <a href="https://drive.google.com/drive/folders/14vAOLfelZWM-yaDgy0y_F9K95YmJnOlo?usp=sharing" target="_blank">
+                Know More <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+    <a href="/" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('workDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function toggleSubmenu(event, submenuId) {
+            event.preventDefault();
+            const submenu = document.getElementById(submenuId);
+            submenu.classList.toggle('active');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

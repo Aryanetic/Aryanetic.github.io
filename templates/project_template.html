@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Project Title] - Arya Ranjan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo-text">Arya Ranjan</h1>
+            <div class="nav-links">
+                <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="project-page">
+        <!-- Hero Section -->
+        <section class="project-hero">
+            <div class="project-hero-content">
+                <h1 class="project-title reveal-text">[Project Title]</h1>
+                <div class="project-tags">
+                    <span class="tag slide-in">[Tag 1]</span>
+                    <span class="tag slide-in">[Tag 2]</span>
+                    <span class="tag slide-in">[Tag 3]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="project-content">
+            <div class="content-grid">
+                <!-- Overview Section -->
+                <div class="content-section fade-up">
+                    <div class="section-header">
+                        <i class="fas fa-info-circle"></i>
+                        <h2>Project Overview</h2>
+                    </div>
+                    <div class="section-body">
+                        <p>[Project Overview Content]</p>
+                    </div>
+                </div>
+
+                <!-- Key Features Section -->
+                <div class="content-section fade-up">
+                    <div class="section-header">
+                        <i class="fas fa-tasks"></i>
+                        <h2>Key Features</h2>
+                    </div>
+                    <div class="section-body features-grid">
+                        <div class="feature-card">
+                            <i class="feature-icon fas fa-[icon1]"></i>
+                            <h3>[Feature 1]</h3>
+                            <p>[Feature 1 Description]</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="feature-icon fas fa-[icon2]"></i>
+                            <h3>[Feature 2]</h3>
+                            <p>[Feature 2 Description]</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="feature-icon fas fa-[icon3]"></i>
+                            <h3>[Feature 3]</h3>
+                            <p>[Feature 3 Description]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="content-section fade-up">
+                    <div class="section-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h2>Results & Impact</h2>
+                    </div>
+                    <div class="section-body results-grid">
+                        <div class="result-card">
+                            <div class="result-number counter">1</div>
+                            <p>[Result 1]</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-number counter">2</div>
+                            <p>[Result 2]</p>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-number counter">3</div>
+                            <p>[Result 3]</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Link -->
+                <div class="content-section fade-up">
+                    <div class="project-cta">
+                        <a href="[Project URL]" class="cta-button" target="_blank">
+                            <span class="button-text">View Full Project</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Arya Ranjan. All rights reserved.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 

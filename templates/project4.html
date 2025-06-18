@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrepreneurship & Business Planning Project - Arya Ranjan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        /* Modern UI Styles */
+        :root {
+            --primary-color: #4682B4;
+            --secondary-color: #6495ED;
+            --text-color: #333;
+            --white: #fff;
+            --light-bg: #f5f5f5;
+            --gradient-1: linear-gradient(135deg, #4682B4, #6495ED);
+            --gradient-2: linear-gradient(135deg, #6495ED, #4682B4);
+            --shadow-1: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-2: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            background: #f8fafc;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .project-hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: var(--primary-gradient);
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(70, 130, 180, 0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            color: var(--text-color);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skill-tag {
+            background: white;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 1rem 2rem;
+            position: relative;
+            overflow: hidden;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-tag::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            width: var(--progress);
+            transition: width 1s ease;
+        }
+
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow-1);
+            padding: 0.3rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow-2);
+            border-radius: 10px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0.2rem 0;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .dropdown-content a i {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow-2);
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        .dropdown-content a.has-submenu::after {
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+        }
+
+        .menu-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 0.5rem 1.2rem;
+            border-bottom: 1px solid var(--light-bg);
+            margin-bottom: 0.5rem;
+        }
+
+        .analytics-link {
+            background: var(--gradient-1);
+            color: var(--white) !important;
+        }
+
+        .analytics-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+
+        /* Back to Home Button */
+        .back-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-2);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+
+        .back-button i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .view-project-btn .btn {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: var(--text-light);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .view-project-btn .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .view-project-btn .btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .view-project-btn .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .section-title {
+            color: var(--text-color);
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-body p {
+            color: var(--text-color);
+            font-weight: 500;
+            line-height: 1.8;
+            font-size: 1.2rem;
+        }
+
+        .tag {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-color);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .feature-card h3 {
+            color: var(--text-color);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-color);
+            font-weight: 500;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .skill-tag span {
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .home-link {
+            background: var(--gradient-1);
+            color: var(--white) !important;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(70, 130, 180, 0.2);
+        }
+
+        .home-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(70, 130, 180, 0.3);
+        }
+
+        .home-link i {
+            font-size: 1.2rem;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem 0;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .result-card.highlight {
+            background: linear-gradient(135deg, rgba(42,42,114,0.1), rgba(0,159,253,0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .result-card.highlight:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .result-icon {
+            font-size: 2.5rem;
+            color: #2a2a72;
+            margin-bottom: 1rem;
+        }
+
+        .view-project-section {
+            margin-top: 4rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+        .view-project-container {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .view-project-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #2a2a72, #009ffd);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .view-project-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .view-project-button span::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .view-project-button:hover span::after {
+            width: 100%;
+        }
+
+        .view-project-button i {
+            transition: transform 0.3s ease;
+        }
+
+        .view-project-button:hover i {
+            transform: translateX(5px);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #2a2a72;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(10deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-text">Arya Ranjan</a>
+            <div class="nav-links">
+                <a href="/" class="home-link"><i class="fas fa-home"></i> Home</a>
+                <a href="/#about"><i class="fas fa-user"></i> About</a>
+                <div class="dropdown" id="workDropdown">
+                    <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Select Category</div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'internshipSubmenu')">
+                            <i class="fas fa-graduation-cap"></i> Internships
+                        </a>
+                        <div class="submenu" id="internshipSubmenu">
+                            <div class="menu-title">Internship Programs</div>
+                            <a href="/internship1"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
+                            <a href="/internship2"><i class="fas fa-building"></i> Graduate Training Program</a>
+                            <a href="/internship3"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
+                            <a href="/internship4"><i class="fas fa-users"></i> SUPA Internship</a>
+                            <a href="/internship5"><i class="fas fa-handshake"></i> Customer Relationship</a>
+                        </div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
+                            <i class="fas fa-project-diagram"></i> Projects
+                        </a>
+                        <div class="submenu" id="projectSubmenu">
+                            <div class="menu-title">Project Portfolio</div>
+                            <a href="/project1"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
+                            <a href="/project2"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
+                            <a href="/project3"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
+                            <a href="/project4"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
+                        </div>
+                        <a href="/experience"><i class="fas fa-building"></i> Work Experience</a>
+                    </div>
+                </div>
+                <a href="/#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/analytics" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Home Button -->
+    <a href="/" class="back-button">
+        <i class="fas fa-home"></i>
+        Back to Home
+    </a>
+
+    <div class="project-hero">
+        <div class="hero-content">
+            <h1 class="project-title">Entrepreneurship & Business Planning</h1>
+            <div class="tags-container">
+                <span class="tag">Business Planning</span>
+                <span class="tag">Market Research</span>
+                <span class="tag">Financial Analysis</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-content">
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
+            </div>
+            <div class="section-body">
+                <p class="animated-text">In this project, I developed a comprehensive business plan for a sustainable fashion brand, conducting market research, financial analysis, and creating a detailed marketing strategy.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Key Elements</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Market Analysis</h3>
+                    <p style="text-align: left;">Conducted thorough market research to identify target audience, competitors, and market trends in the sustainable fashion industry.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Financial Planning</h3>
+                    <p style="text-align: left;">Developed detailed financial projections, including startup costs, revenue forecasts, and break-even analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Marketing Strategy</h3>
+                    <p style="text-align: left;">Created a comprehensive marketing plan focusing on digital channels and sustainable brand messaging.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Stakeholder Management</h3>
+                    <p style="text-align: left;">Identified and engaged with key stakeholders, including potential investors, suppliers, and partners.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-graduation-cap"></i> Skills Enhanced</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-tag">Business Planning</div>
+                <div class="skill-tag">Market Research</div>
+                <div class="skill-tag">Financial Analysis</div>
+                <div class="skill-tag">Strategic Planning</div>
+                <div class="skill-tag">Project Management</div>
+                <div class="skill-tag">Stakeholder Management</div>
+                <div class="skill-tag">Marketing Strategy</div>
+                <div class="skill-tag">Risk Assessment</div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-line"></i> Results & Impact</h2>
+            </div>
+            <div class="results-content">
+                <div class="result-card highlight">
+                    <div class="result-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Business Plan Recognition</h3>
+                    <p>The business plan was recognized as one of the top 5 plans in the college entrepreneurship competition, demonstrating strong market potential and financial viability.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Details Button Section -->
+        <section class="content-section fade-in view-project-section">
+            <div class="view-project-container">
+                <a href="https://drive.google.com/file/d/1uV7lkS5VF0xQffVxMZjeid5GUa5oA06Y/view?usp=drive_link" 
+                   target="_blank" 
+                   class="view-project-button hover-effect">
+                    <span>View Complete Project Details</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles.js
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#ffffff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: false },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#ffffff',
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        onclick: { enable: true, mode: 'push' },
+                        resize: true
+                    }
+                },
+                retina_detect: true
+            });
+
+            // Initialize GSAP
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Hero section animation
+            gsap.from('.project-title', {
+                duration: 1.5,
+                y: 100,
+                opacity: 0,
+                ease: 'power4.out'
+            });
+
+            gsap.from('.project-tags .tag', {
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                stagger: 0.2,
+                ease: 'power3.out'
+            });
+
+            // Feature cards animation with 3D effect
+            gsap.utils.toArray('.feature-card').forEach(card => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top bottom-=100',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 1,
+                    y: 100,
+                    opacity: 0,
+                    rotationX: 15,
+                    transformOrigin: 'center center',
+                    ease: 'power3.out'
+                });
+
+                // Add hover animation
+                card.addEventListener('mouseenter', () => {
+                    gsap.to(card, {
+                        duration: 0.3,
+                        scale: 1.05,
+                        rotationX: 5,
+                        ease: 'power2.out'
+                    });
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    gsap.to(card, {
+                        duration: 0.3,
+                        scale: 1,
+                        rotationX: 0,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+            // Skills animation with progress bars
+            gsap.utils.toArray('.skill-tag').forEach((tag, index) => {
+                gsap.from(tag, {
+                    scrollTrigger: {
+                        trigger: tag,
+                        start: 'top bottom-=50',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 0.8,
+                    y: 50,
+                    opacity: 0,
+                    delay: index * 0.1,
+                    ease: 'power3.out'
+                });
+            });
+
+            // Section titles animation
+            gsap.utils.toArray('.section-title').forEach(title => {
+                gsap.from(title, {
+                    scrollTrigger: {
+                        trigger: title,
+                        start: 'top bottom-=100',
+                        toggleActions: 'play none none reverse'
+                    },
+                    duration: 1,
+                    y: 50,
+                    opacity: 0,
+                    ease: 'power3.out'
+                });
+            });
+
+            // View project button animation
+            gsap.from('.view-project-btn', {
+                scrollTrigger: {
+                    trigger: '.view-project-btn',
+                    start: 'top bottom-=100',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 1.2,
+                y: 50,
+                opacity: 0,
+                ease: 'power3.out'
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        gsap.to(window, {
+                            duration: 1,
+                            scrollTo: {
+                                y: target,
+                                offsetY: 70
+                            },
+                            ease: 'power3.inOut'
+                        });
+                    }
+                });
+            });
+        });
+
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('workDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function toggleSubmenu(event, submenuId) {
+            event.preventDefault();
+            const submenu = document.getElementById(submenuId);
+            submenu.classList.toggle('active');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
