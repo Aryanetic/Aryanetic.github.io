@@ -240,10 +240,24 @@
             "referrer": null,
             "device_type": "desktop",
             "country": "Unknown"
+        },
+        "d24fb4cf-ef3f-40b9-b9bc-423e36feb548": {
+            "start_time": 1750269914.944688,
+            "last_activity": 1750269914.944688,
+            "pages": [
+                "/"
+            ],
+            "total_time": 0,
+            "page_times": {},
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "referrer": null,
+            "device_type": "desktop",
+            "country": "Unknown",
+            "traffic_source": "direct"
         }
     },
     "page_views": {
-        "/": 406,
+        "/": 407,
         "/track": 8931,
         "/analytics": 98,
         "/api/analytics": 207,
@@ -270,7 +284,7 @@
     },
     "page_engagement": {
         "/": {
-            "views": 392,
+            "views": 393,
             "total_time": 17.43220090866089,
             "avg_time": 0.04446990027719615,
             "bounce_rate": 0,
@@ -281,7 +295,8 @@
                 "867f472f-9e5d-4de5-903f-ed8a2bbe9999",
                 "1af86aab-00c7-4d80-9d5c-63e85e18304f",
                 "221470dc-5b33-45b1-9279-e2fc87e3a010",
-                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302",
+                "d24fb4cf-ef3f-40b9-b9bc-423e36feb548"
             ],
             "interactions": 0
         },
@@ -570,7 +585,7 @@
     "real_time_data": {
         "active_users": 1,
         "current_page_views": {
-            "/": 406,
+            "/": 407,
             "/track": 8931,
             "/analytics": 98,
             "/api/analytics": 207,
@@ -647,17 +662,17 @@
                 0,
                 4,
                 1,
-                28
+                29
             ]
         },
         "geographic_data": {
-            "Unknown": 10296
+            "Unknown": 10297
         },
         "traffic_sources": {
             "google_search": 0,
             "linkedin": 0,
             "instagram": 0,
-            "direct": 4,
+            "direct": 5,
             "whatsapp": 0,
             "other": 0
         },
@@ -669,7 +684,7 @@
             "search_term_visits": {}
         },
         "device_types": {
-            "desktop": 9997,
+            "desktop": 9998,
             "mobile": 0,
             "tablet": 0,
             "null": 1,
