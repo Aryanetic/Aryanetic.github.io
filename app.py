@@ -10,14 +10,14 @@ import json
 import time
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key-here'  # Required for session management
+app.secret_key = os.urandom(24)  # Generate a random secret key
 data_manager = AnalyticsDataManager()
 
-# Email configuration
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
-SENDER_EMAIL = "aryaranjan1210@gmail.com"
-SENDER_PASSWORD = os.environ.get("EMAIL_PASSWORD")  # Set this in your environment variables
+# Email configuration - these should be set in environment variables
+SMTP_SERVER = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
+SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
+SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "")
+SENDER_PASSWORD = os.environ.get("EMAIL_PASSWORD", "")
 
 def get_session_id():
     if 'session_id' not in session:
@@ -25,6 +25,10 @@ def get_session_id():
     return session['session_id']
 
 def send_email_notification(form_data):
+    if not all([SENDER_EMAIL, SENDER_PASSWORD]):
+        print("Email configuration not set")
+        return False
+        
     try:
         # Create message
         msg = MIMEMultipart()
@@ -238,7 +242,7 @@ def get_analytics():
 
 @app.route('/track', methods=['POST'])
 def track_event():
-    data = request.json
+    data = request.json or {}
     session_id = get_session_id()
     
     if data.get('type') == 'page_view':
@@ -251,7 +255,7 @@ def track_event():
 @app.route('/send-email', methods=['POST'])
 def send_email():
     try:
-        form_data = request.json
+        form_data = request.json or {}
         
         # Validate required fields
         required_fields = ['name', 'email', 'message']
@@ -280,6 +284,7 @@ def track_interaction():
     return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
 
     
