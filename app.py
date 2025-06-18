@@ -66,36 +66,24 @@ def send_email_notification(form_data):
 @app.before_request
 def track_page_view():
     if request.endpoint and 'static' not in request.endpoint:
-        session_id = request.cookies.get('session_id')
-        if not session_id:
-            session_id = str(uuid.uuid4())
-            response = make_response(redirect(request.url))
-            response.set_cookie('session_id', session_id)
-            return response
-        
-        # Get the current page
+        if 'analytics_session_id' not in session:
+            session['analytics_session_id'] = str(uuid.uuid4())
+        session_id = session['analytics_session_id']
         current_page = request.path
-        
-        # Calculate time spent on previous page
+        user_agent = request.headers.get('User-Agent', '')
+        ip_address = request.remote_addr
+        now = time.time()
+        time_spent = None
         last_page = session.get('last_page')
         last_time = session.get('last_time')
-        time_spent = None
-        
-        if last_page and last_time:
-            time_spent = time.time() - last_time
-        
-        # Track the page view with additional data
-        data_manager.track_page_view(
-            session_id=session_id,
-            page=current_page,
-            time_spent=time_spent,
-            user_agent=request.headers.get('User-Agent'),
-            referrer=request.headers.get('Referer')
-        )
-        
-        # Update session data
+        if last_page and last_time and last_page != current_page:
+            time_spent = now - last_time
+            # Optionally, you could record time spent on last_page here
+            data_manager.track_page(last_page, session_id=session_id, time_spent=time_spent, user_agent=user_agent, ip_address=ip_address)
+        # Always record the current page view (with no time_spent if first visit)
         session['last_page'] = current_page
-        session['last_time'] = time.time()
+        session['last_time'] = now
+        data_manager.track_page(current_page, session_id=session_id, user_agent=user_agent, ip_address=ip_address)
 
 @app.route('/')
 def index():
@@ -115,7 +103,7 @@ def contact():
 
 @app.route('/analytics')
 def analytics():
-    return render_template('analytics.html')
+    return render_template('analytics.html', data=data_manager.get_analytics())
 
 @app.route('/skills')
 def skills():
@@ -243,13 +231,9 @@ def get_analytics():
 @app.route('/track', methods=['POST'])
 def track_event():
     data = request.json or {}
-    session_id = get_session_id()
-    
     if data.get('type') == 'page_view':
-        data_manager.track_page_view(session_id, data.get('path', '/'))
-    elif data.get('type') == 'click':
-        data_manager.track_click(data.get('element_id'), data.get('page_path'))
-    
+        data_manager.track_page(data.get('path', '/'))
+    # Ignore click/interactions for now (simplified analytics)
     return jsonify({'status': 'success'})
 
 @app.route('/send-email', methods=['POST'])
@@ -270,18 +254,6 @@ def send_email():
             return jsonify({'success': False, 'error': 'Failed to send email'})
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
-
-@app.route('/api/interaction', methods=['POST'])
-def track_interaction():
-    data = request.get_json()
-    session_id = request.cookies.get('session_id')
-    if session_id and 'page' in data and 'type' in data:
-        data_manager.track_interaction(
-            session_id=session_id,
-            page=data['page'],
-            interaction_type=data['type']
-        )
-    return jsonify({'status': 'success'})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
