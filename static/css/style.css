@@ -16,16 +16,16 @@
 
 /* Dark Mode Styles */
 [data-theme="dark"] {
-    --primary-color: #64B5F6;
-    --secondary-color: #90CAF9;
-    --text-color: #E0E0E0;
-    --white: #1A1A1A;
-    --light-bg: #121212;
-    --gradient-1: linear-gradient(135deg, #1976D2, #2196F3);
-    --gradient-2: linear-gradient(135deg, #2196F3, #1976D2);
-    --shadow-1: 0 4px 6px rgba(0, 0, 0, 0.3);
-    --shadow-2: 0 6px 12px rgba(0, 0, 0, 0.4);
-    --card-bg: #1E1E1E;
+    --primary-color: #8ab4f8;
+    --secondary-color: #60a5fa;
+    --text-color: #e5e7eb;
+    --white: #0d1117;
+    --light-bg: #111827;
+    --card-bg: #1f2937;
+    --gradient-1: linear-gradient(135deg, #1e293b, #0f172a);
+    --gradient-2: linear-gradient(135deg, #0f172a, #1e293b);
+    --shadow-1: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-2: 0 6px 12px rgba(0, 0, 0, 0.6);
     --border-color: #333;
 }
 
@@ -645,39 +645,41 @@ body {
 
 /* Experience Section */
 .experience {
-    padding: 4rem 2rem;
-    background: var(--white);
+    padding: 6rem 2rem;
+    background: var(--light-bg);
+}
+
+.experience-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .experience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
+    margin-top: 3rem;
 }
 
 .experience-card {
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: 15px;
-    box-shadow: var(--shadow-2);
     overflow: hidden;
+    box-shadow: var(--shadow-1);
     transition: all 0.3s ease;
-    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .experience-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-1);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-2);
 }
 
 .experience-image-container {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1.2 / 1;
     width: 100%;
+    height: 180px;
+    overflow: hidden;
 }
 
 .experience-image {
@@ -688,276 +690,41 @@ body {
 }
 
 .experience-card:hover .experience-image {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-.experience-content {
+.experience-content-inner {
     padding: 1.5rem;
 }
 
-.experience-content h3 {
+.experience-content-inner h3 {
+    font-size: 1.3rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
-    font-size: 1.3rem;
-    font-weight: 600;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.experience-content h3 i {
-    color: var(--secondary-color);
-    font-size: 1.2rem;
 }
 
 .experience-company {
-    color: var(--secondary-color);
     font-weight: 500;
-    margin-bottom: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.experience-company i {
-    font-size: 1rem;
+    gap: 0.4rem;
 }
 
 .experience-description {
-    color: var(--text-color);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
 }
 
-.experience-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.experience-tag {
-    background: var(--gradient-1);
-    color: var(--white);
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    transition: all 0.3s ease;
-}
-
-.experience-tag:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.experience-tag i {
-    font-size: 0.8rem;
-}
-
-.experience-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.8rem 1.5rem;
-    border: 2px solid var(--secondary-color);
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
-}
-
-.experience-link::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-1);
-    transition: left 0.3s ease;
-    z-index: -1;
-}
-
-.experience-link:hover {
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-1);
-}
-
-.experience-link:hover::before {
-    left: 0;
-}
-
-.experience-link i {
-    transition: transform 0.3s ease;
-}
-
-.experience-link:hover i {
-    transform: translateX(5px);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    animation: fadeIn 1s ease 0.6s forwards;
-    opacity: 0;
-}
-
-.hero-btn {
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-1);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.hero-btn:hover::before {
-    opacity: 1;
-}
-
-.hero-btn.primary {
-    background: var(--white);
-    color: var(--primary-color);
-}
-
-.hero-btn.secondary {
-    background: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
-}
-
-.hero-btn:hover {
-    transform: translateY(-3px);
-}
-
-/* Dropdown Menu */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.dropdown-toggle .fa-chevron-down {
-    transition: transform 0.3s ease;
-    font-size: 0.8rem;
-}
-
-.dropdown:hover .fa-chevron-down {
-    transform: rotate(180deg);
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--white);
-    min-width: 280px;
-    box-shadow: var(--shadow-2);
-    border-radius: 12px;
-    padding: 0.8rem;
-    margin-top: 0.5rem;
-    animation: fadeIn 0.3s ease;
-}
-
-.dropdown.active .dropdown-content {
-    display: block;
-}
-
-.menu-title {
-    font-weight: 600;
-    color: var(--primary-color);
-    padding: 0.8rem 1.2rem;
-    border-bottom: 1px solid var(--light-bg);
-    margin-bottom: 0.5rem;
-}
-
-.dropdown-content a {
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    margin: 0.2rem 0;
-    font-size: 0.9rem;
-}
-
-.dropdown-content a:hover {
-    background: var(--gradient-1);
-    color: var(--white);
-    transform: translateX(5px);
-}
-
-.dropdown-content a i {
-    width: 20px;
-    margin-right: 10px;
-}
-
-.submenu {
-    display: none;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    background: var(--white);
-    min-width: 280px;
-    box-shadow: var(--shadow-2);
-    border-radius: 12px;
-    padding: 0.8rem;
-    margin-left: 0.5rem;
-    animation: fadeIn 0.3s ease;
-}
-
-.submenu.active {
-    display: block;
-}
-
-.has-submenu {
-    position: relative;
-}
-
-.has-submenu::after {
-    content: '\f054';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
-}
-
-.has-submenu:hover::after {
-    transform: translateY(-50%) translateX(5px);
+@media (max-width: 768px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Launch Phases Styles */
@@ -1561,18 +1328,7 @@ body {
 
 /* Interesting Dark Mode Toggle Button */
 .theme-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    width: 60px;
-    height: 30px;
-    position: relative;
-    border-radius: 15px;
-    background: linear-gradient(45deg, #FFD700, #FFA500);
-    transition: all 0.4s ease;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(45deg, #ffdd55, #ffac33);
 }
 
 .theme-toggle:hover {
@@ -1609,7 +1365,7 @@ body {
 
 /* Dark mode toggle state */
 [data-theme="dark"] .theme-toggle {
-    background: linear-gradient(45deg, #1976D2, #2196F3);
+    background: linear-gradient(45deg, #374151, #1f2937);
 }
 
 [data-theme="dark"] .sun-icon {
