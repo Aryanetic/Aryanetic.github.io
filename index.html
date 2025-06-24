@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arya Ranjan - Portfolio</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -925,12 +925,11 @@
     </style>
 </head>
 <body>
-    <!-- Header with Navigation -->
-    <header class="navbar">
-        <nav class="nav-container">
-            <div class="logo-text">Arya Ranjan</div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-text">Arya Ranjan</a>
             <div class="nav-links">
-                <a href="/#about"><i class="fas fa-user"></i> About</a>
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
                 <div class="dropdown" id="workDropdown">
                     <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
                     <div class="dropdown-content">
@@ -940,410 +939,213 @@
                         </a>
                         <div class="submenu" id="internshipSubmenu">
                             <div class="menu-title">Internship Programs</div>
-                            <a href="/internship1"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
-                            <a href="/internship2"><i class="fas fa-building"></i> Graduate Training Program</a>
-                            <a href="/internship3"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
-                            <a href="/internship4"><i class="fas fa-users"></i> SUPA Internship</a>
-                            <a href="/internship5"><i class="fas fa-handshake"></i> Customer Relationship</a>
+                            <a href="internship1.html"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
+                            <a href="internship2.html"><i class="fas fa-building"></i> Graduate Training Program</a>
+                            <a href="internship3.html"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
+                            <a href="internship4.html"><i class="fas fa-users"></i> SUPA Internship</a>
+                            <a href="internship5.html"><i class="fas fa-handshake"></i> Customer Relationship</a>
                         </div>
                         <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
                             <i class="fas fa-project-diagram"></i> Projects
                         </a>
                         <div class="submenu" id="projectSubmenu">
                             <div class="menu-title">Project Portfolio</div>
-                            <a href="/project1"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
-                            <a href="/project2"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
-                            <a href="/project3"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
-                            <a href="/project4"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
+                            <a href="project1.html"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
+                            <a href="project2.html"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
+                            <a href="project3.html"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
+                            <a href="project4.html"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
                         </div>
-                        <a href="/experience"><i class="fas fa-building"></i> Work Experience</a>
+                        <a href="experience.html"><i class="fas fa-building"></i> Work Experience</a>
                     </div>
                 </div>
-                <a href="/#contact"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="/analytics" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="analytics.html" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
             </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="animated-bg">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
         </div>
-        <div class="hero-content fade-in">
-            <h1>Hi, I'm Arya Ranjan</h1>
-            <p class="fade-in">I love turning smart marketing ideas into real results by blending strategy, storytelling, curiosity, and data that keeps everything grounded. I enjoy exploring what makes people click and crafting campaigns that feel simple but work hard.</p>
-            <div class="hero-buttons fade-in">
-                <div class="dropdown">
-                    <a href="#experience" class="hero-btn dropdown-toggle"><i class="fas fa-briefcase"></i> Work Experience</a>
-                    <div class="dropdown-menu">
-                        <a href="#experience" class="dropdown-item"><i class="fas fa-briefcase"></i> Work Experience</a>
-                        <a href="#internship" class="dropdown-item"><i class="fas fa-graduation-cap"></i> Internship</a>
-                        <a href="#projects" class="dropdown-item"><i class="fas fa-project-diagram"></i> Projects</a>
-                    </div>
-                </div>
-                <a href="#contact" class="hero-btn secondary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
-                <a href="#skills" class="hero-btn primary"><i class="fas fa-brain"></i> Skills & Tools</a>
-            </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Exploring the intersection of technology and innovation</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-content fade-in">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text fade-in">
-                    <p>A PGDM graduate from XIME Bangalore. I've worked in a B2B setup where I got to understand how marketing really influences business growth. I love digging into data, spotting what's working (and what's not), and using those insights to shape smart, effective marketing strategies. For me, it's all about making ideas click—and getting real results.</p>
-                    <p><strong>Education:</strong> PGDM in Marketing and Analytics</p>
-                    <p><strong>Current Position:</strong> Key Account Manager at MRIBS</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience-section">
-        <div class="section-header">
-            <h2>Work Experience</h2>
-        </div>
-        <div class="experience-card">
+    <section id="experience" class="experience">
+        <div class="experience-content">
             <div class="experience-header">
                 <div class="experience-image">
-                    <img src="{{ url_for('static', filename='images/B2b_sales.webp') }}" alt="B2B Sales">
+                    <img src="static/images/B2b_sales.webp" alt="B2B Sales">
                 </div>
                 <div class="experience-title">
-                    <h3>Key Account Manager</h3>
-                    <p class="company">MRIBS</p>
-                    <p class="duration">2021 - Present</p>
-                </div>
-            </div>
-            <p class="experience-description">
-                Worked as key account manager. Managed key client relationships and drove business growth through business and marketing strategic partnerships.
-            </p>
-            <a href="/experience1" class="read-more">Read More</a>
-        </div>
-    </section>
-
-    <!-- Internship Section -->
-    <section id="internship" class="internship">
-        <h2 class="section-title">Internship</h2>
-        <div class="internship-grid">
-            <div class="internship-card">
-                <div class="internship-image-container">
-                    <img src="{{ url_for('static', filename='images/Internship _1.webp') }}" alt="Digital Marketing Internship" class="internship-image">
-                </div>
-                <div class="internship-content">
-                    <h3><i class="fas fa-graduation-cap"></i> Digital Marketing & SEO</h3>
-                    <p class="internship-description">Enhanced Google search rankings and conducted keyword research using SEMrush to improve website visibility and organic search performance.</p>
-                    <div class="internship-tags">
-                        <span class="internship-tag"><i class="fas fa-info-circle"></i> Overview</span>
-                        <span class="internship-tag"><i class="fas fa-tasks"></i> Responsibilities</span>
-                    </div>
-                    <div class="responsibility-tags">
-                        <span class="tag"><i class="fas fa-search"></i> SEO Optimization with SEMrush</span>
-                        <span class="tag"><i class="fas fa-link"></i> Off-Page SEO Strategies</span>
-                        <span class="tag"><i class="fas fa-pen"></i> Content Writing with Keywords</span>
-                        <span class="tag"><i class="fas fa-cogs"></i> Technical SEO & Website Crawling</span>
-                    </div>
-                    <a href="/internship1" class="internship-link">Know More <i class="fas fa-arrow-right"></i></a>
+                    <h2>Professional Experience</h2>
+                    <p>Explore my journey through various roles and projects</p>
                 </div>
             </div>
 
-            <div class="internship-card">
-                <div class="internship-image-container">
-                    <img src="{{ url_for('static', filename='images/Internship_2.webp') }}" alt="Graduate Training" class="internship-image">
-                </div>
-                <div class="internship-content">
-                    <h3><i class="fas fa-graduation-cap"></i> Graduate Training</h3>
-                    <p class="internship-description">I worked at a startup company where I got exposure to various roles and responsibilities.</p>
-                    <div class="internship-tags">
-                        <span class="internship-tag"><i class="fas fa-info-circle"></i> Overview</span>
-                        <span class="internship-tag"><i class="fas fa-tasks"></i> Skills</span>
+            <div class="internship-grid">
+                <div class="internship-card">
+                    <div class="internship-image-container">
+                        <img src="static/images/Internship _1.webp" alt="Digital Marketing Internship" class="internship-image">
                     </div>
-                    <div class="responsibility-tags">
-                        <span class="tag"><i class="fas fa-code"></i> HTML</span>
-                        <span class="tag"><i class="fas fa-paint-brush"></i> CSS</span>
-                        <span class="tag"><i class="fas fa-code"></i> JavaScript</span>
-                        <span class="tag"><i class="fas fa-database"></i> SQL</span>
-                        <span class="tag"><i class="fas fa-code"></i> PHP</span>
-                        <span class="tag"><i class="fas fa-code"></i> Python</span>
+                    <div class="internship-content">
+                        <h3>Digital Marketing Internship</h3>
+                        <p>Led digital marketing initiatives and campaigns</p>
+                        <a href="internship1.html" class="btn-learn-more">Learn More</a>
                     </div>
-                    <a href="/internship2" class="internship-link">Know More <i class="fas fa-arrow-right"></i></a>
                 </div>
-            </div>
 
-            <div class="internship-card">
-                <div class="internship-image-container">
-                    <img src="{{ url_for('static', filename='images/Internship_3.webp') }}" alt="Social Media Internship" class="internship-image">
-                </div>
-                <div class="internship-content">
-                    <h3><i class="fas fa-graduation-cap"></i> Social Media</h3>
-                    <p class="internship-description">I worked as a social media intern where I have to manage social media accounts and create engaging content.</p>
-                    <div class="internship-details">
-                        <span class="internship-tag"><i class="fas fa-share-alt"></i> Social Media Management</span>
-                        <span class="internship-tag"><i class="fas fa-pen"></i> Content Creation</span>
-                        <span class="internship-tag"><i class="fas fa-chart-bar"></i> Engagement Analytics</span>
+                <div class="internship-card">
+                    <div class="internship-image-container">
+                        <img src="static/images/Internship_2.webp" alt="Graduate Training" class="internship-image">
                     </div>
-                    <a href="/internship3" class="internship-link">Know More <i class="fas fa-arrow-right"></i></a>
+                    <div class="internship-content">
+                        <h3>Graduate Training Program</h3>
+                        <p>Comprehensive training in business operations</p>
+                        <a href="internship2.html" class="btn-learn-more">Learn More</a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="internship-card">
-                <div class="internship-image-container">
-                    <img src="{{ url_for('static', filename='images/internship_4.webp') }}" alt="SUPA Internship" class="internship-image">
-                </div>
-                <div class="internship-content">
-                    <h3><i class="fas fa-graduation-cap"></i> SUPA</h3>
-                    <p class="internship-description">I worked with an NGO and helped the NGO to organize various campaigns to increase brand awareness.</p>
-                    <div class="internship-details">
-                        <span class="internship-tag"><i class="fas fa-hands-helping"></i> NGO Work</span>
-                        <span class="internship-tag"><i class="fas fa-bullhorn"></i> Campaign Organization</span>
-                        <span class="internship-tag"><i class="fas fa-heart"></i> Brand Awareness</span>
+                <div class="internship-card">
+                    <div class="internship-image-container">
+                        <img src="static/images/Internship_3.webp" alt="Social Media Internship" class="internship-image">
                     </div>
-                    <a href="/internship4" class="internship-link">Know More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <div class="internship-card">
-                <div class="internship-image-container">
-                    <img src="{{ url_for('static', filename='images/Internship_5.webp') }}" alt="Customer Relationship Management Internship" class="internship-image">
-                </div>
-                <div class="internship-content">
-                    <h3><i class="fas fa-graduation-cap"></i> Customer Relationship Management</h3>
-                    <p class="internship-description">I worked as customer relationship management, where I have generated leads through digital marketing and have to build relationship management.</p>
-                    <div class="internship-details">
-                        <span class="internship-tag"><i class="fas fa-users"></i> CRM</span>
-                        <span class="internship-tag"><i class="fas fa-chart-line"></i> Lead Generation</span>
-                        <span class="internship-tag"><i class="fas fa-handshake"></i> Relationship Building</span>
+                    <div class="internship-content">
+                        <h3>Social Media Marketing</h3>
+                        <p>Managed social media strategies and content</p>
+                        <a href="internship3.html" class="btn-learn-more">Learn More</a>
                     </div>
-                    <a href="/internship5" class="internship-link">Know More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="internship-card">
+                    <div class="internship-image-container">
+                        <img src="static/images/internship_4.webp" alt="SUPA Internship" class="internship-image">
+                    </div>
+                    <div class="internship-content">
+                        <h3>SUPA Internship</h3>
+                        <p>Research and development in technology</p>
+                        <a href="internship4.html" class="btn-learn-more">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="internship-card">
+                    <div class="internship-image-container">
+                        <img src="static/images/Internship_5.webp" alt="Customer Relationship Management Internship" class="internship-image">
+                    </div>
+                    <div class="internship-content">
+                        <h3>Customer Relationship</h3>
+                        <p>Enhanced customer service and relationships</p>
+                        <a href="internship5.html" class="btn-learn-more">Learn More</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-            <!-- Project 1 -->
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-grid">
             <div class="project-card">
                 <div class="project-image-container">
-                    <img src="{{ url_for('static', filename='images/Dark_Poster.png') }}" alt="Integrated Marketing Communication" class="project-image">
+                    <img src="static/images/Dark_Poster.png" alt="Integrated Marketing Communication" class="project-image">
                 </div>
                 <div class="project-content">
-                    <h3><i class="fas fa-bullhorn"></i> Integrated Marketing Communication</h3>
-                    <p class="project-description">A comprehensive marketing strategy project focusing on integrated communication and campaign analytics.</p>
-                    <a href="/project1" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    <h3>Integrated Marketing Campaign</h3>
+                    <p>Comprehensive marketing strategy and execution</p>
+                    <a href="project1.html" class="btn-learn-more">View Project</a>
                 </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="project-card">
                 <div class="project-image-container">
-                    <img src="{{ url_for('static', filename='images/MA_poster.png') }}" alt="Marketing Analytics" class="project-image">
+                    <img src="static/images/MA_poster.png" alt="Marketing Analytics" class="project-image">
                 </div>
                 <div class="project-content">
-                    <h3><i class="fas fa-chart-bar"></i> Marketing Analytics</h3>
-                    <p class="project-description">Data-driven marketing analysis project showcasing analytical skills, strategic insights, Campaign analysis, Market research, data visualization and more.</p>
-                    <a href="/project2" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    <h3>Marketing Analytics Project</h3>
+                    <p>Data-driven marketing insights and analysis</p>
+                    <a href="project2.html" class="btn-learn-more">View Project</a>
                 </div>
             </div>
 
-            <!-- Project 3 -->
             <div class="project-card">
                 <div class="project-image-container">
-                    <img src="{{ url_for('static', filename='images/DT_Poster.png') }}" alt="Digital Transformation & ERP" class="project-image">
+                    <img src="static/images/DT_Poster.png" alt="Digital Transformation & ERP" class="project-image">
                 </div>
                 <div class="project-content">
-                    <h3><i class="fas fa-digital-tachograph"></i> Digital Transformation & ERP</h3>
-                    <p class="project-description">Project focusing on digital transformation strategies and ERP optimization.</p>
-                    <a href="/project3" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    <h3>Digital Transformation</h3>
+                    <p>Business process optimization and automation</p>
+                    <a href="project3.html" class="btn-learn-more">View Project</a>
                 </div>
             </div>
 
-            <!-- Project 4 -->
             <div class="project-card">
                 <div class="project-image-container">
-                    <img src="{{ url_for('static', filename='images/GI_Poster.png') }}" alt="Entrepreneurship" class="project-image">
+                    <img src="static/images/GI_Poster.png" alt="Entrepreneurship" class="project-image">
                 </div>
                 <div class="project-content">
-                    <h3><i class="fas fa-lightbulb"></i> Entrepreneurship</h3>
-                    <p class="project-description">Planned startup operations: marketing, finance, HR, logistics, and funding.</p>
-                    <a href="/project4" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+                    <h3>Entrepreneurship Project</h3>
+                    <p>Innovation and business development</p>
+                    <a href="project4.html" class="btn-learn-more">View Project</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2 class="section-title">Skills & Tools</h2>
-        <div class="skills-container">
-            <!-- Marketing Skills -->
-            <div class="skills-category fade-up">
-                <h3><i class="fas fa-bullhorn"></i> Marketing Strategy</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-handshake"></i></div>
-                        <h4>B2B Marketing</h4>
-                        <div class="skill-level" data-level="95">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>Digital Marketing</h4>
-                        <div class="skill-level" data-level="90">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-users"></i></div>
-                        <h4>Performance Marketing</h4>
-                        <div class="skill-level" data-level="95">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-search"></i></div>
-                        <h4>SEO</h4>
-                        <div class="skill-level" data-level="85">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-business-time"></i></div>
-                        <h4>Business Development</h4>
-                        <div class="skill-level" data-level="90">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-comments"></i></div>
-                        <h4>Consulting</h4>
-                        <div class="skill-level" data-level="85">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Analytics Skills -->
-            <div class="skills-category fade-up">
-                <h3><i class="fas fa-chart-bar"></i> Data & Analytics</h3>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-database"></i></div>
-                        <h4>Data Analysis</h4>
-                        <div class="skill-level" data-level="85">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
-                        <h4>Visualization</h4>
-                        <div class="skill-level" data-level="80">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                        <h4>Marketing Analytics</h4>
-                        <div class="skill-level" data-level="90">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-flask"></i></div>
-                        <h4>AB Testing</h4>
-                        <div class="skill-level" data-level="85">
-                            <div class="skill-progress"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tools -->
-            <div class="skills-category fade-up">
-                <h3><i class="fas fa-tools"></i> Tools & Software</h3>
-                <div class="skills-grid">
-                    <!-- Marketing Tools -->
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-bullhorn"></i></div>
-                        <h4>Marketing Tools</h4>
-                        <div class="tools-list">
-                            <span class="tool-tag"><i class="fab fa-hubspot"></i> HubSpot</span>
-                            <span class="tool-tag"><i class="fas fa-search"></i> SEMrush</span>
-                            <span class="tool-tag"><i class="fab fa-google"></i> Google Ads</span>
-                            <span class="tool-tag"><i class="fas fa-palette"></i> Canva</span>
-                        </div>
-                    </div>
-                    <!-- Analytics Tools -->
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>Analytics Tools</h4>
-                        <div class="tools-list">
-                            <span class="tool-tag"><i class="fab fa-google"></i> Google Analytics</span>
-                            <span class="tool-tag"><i class="fas fa-file-excel"></i> Excel</span>
-                            <span class="tool-tag"><i class="fab fa-facebook"></i> Meta Ads</span>
-                            <span class="tool-tag"><i class="fas fa-chart-bar"></i> Tableau</span>
-                            <span class="tool-tag"><i class="fas fa-database"></i> SQL</span>
-                        </div>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                    <div class="contact-links">
+                        <a href="mailto:aryaranjan1210@gmail.com" class="contact-button">
+                            <i class="fas fa-envelope"></i>
+                            Email Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/arya-ranjan-758b5b1a4/" target="_blank" class="contact-button">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/Aryanetic" target="_blank" class="contact-button">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-content">
-            <h2 class="section-title">Get In Touch</h2>
-            <p>Want to know more about me? Please contact me here</p>
-            <div class="social-links">
-                <a href="mailto:aryaranjan1210@gmail.com" class="social-link" target="_blank" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/arya-ranjan-758b5b1a4/" class="social-link" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="social-link" onclick="openMessageDialog(event)" title="Leave a Message">
-                    <i class="fas fa-comment-dots"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/project2.js') }}"></script>
+    <script src="static/js/main.js"></script>
     <script>
         function toggleDropdown(event) {
             event.preventDefault();
-            const dropdown = document.getElementById('workDropdown');
+            const dropdown = event.target.closest('.dropdown');
             dropdown.classList.toggle('active');
         }
 
         function toggleSubmenu(event, submenuId) {
             event.preventDefault();
             const submenu = document.getElementById(submenuId);
+            const allSubmenus = document.querySelectorAll('.submenu');
+            allSubmenus.forEach(menu => {
+                if (menu.id !== submenuId) {
+                    menu.classList.remove('active');
+                }
+            });
             submenu.classList.toggle('active');
         }
 
         // Close dropdowns when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
-                if (!dropdown.contains(event.target)) {
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
                     dropdown.classList.remove('active');
-                }
-            });
+                });
+                document.querySelectorAll('.submenu').forEach(submenu => {
+                    submenu.classList.remove('active');
+                });
+            }
         });
     </script>
 </body>
