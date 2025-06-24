@@ -96,6 +96,15 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)';
         });
     });
+
+    // Initialize skill bars
+    initializeSkillBars();
+    
+    // Add fade-up animation to skills categories
+    document.querySelectorAll('.skills-category').forEach((el, index) => {
+        el.style.transitionDelay = `${index * 0.2}s`;
+        observer.observe(el);
+    });
 });
 
 // Enhanced animate elements on scroll with different animations
@@ -422,4 +431,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Remove any cursor elements
     const cursors = document.querySelectorAll('.cursor, .typed-cursor');
     cursors.forEach(cursor => cursor.remove());
-}); 
+});
+
+// Initialize skill progress bars
+function initializeSkillBars() {
+    const skillLevels = document.querySelectorAll('.skill-level');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const progressBar = entry.target.querySelector('.skill-progress');
+                const level = entry.target.dataset.level;
+                progressBar.style.width = `${level}%`;
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    skillLevels.forEach(skillLevel => {
+        observer.observe(skillLevel);
+    });
+} 
