@@ -1389,14 +1389,12 @@ body {
 
 .skill-card {
     background: var(--white);
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-    border-radius: 18px;
+    padding: 2rem;
+    border-radius: 15px;
     box-shadow: var(--shadow-2);
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-    border: 1px solid #e0e7ef;
-    cursor: pointer;
 }
 
 .skill-card::before {
@@ -1411,41 +1409,24 @@ body {
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.skill-card:hover, .skill-card:focus {
-    box-shadow: 0 8px 32px 0 rgba(56,189,248,0.18), 0 1.5px 6px 0 rgba(37,99,235,0.10);
-    transform: translateY(-8px) scale(1.04);
-    border-color: var(--primary-color);
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-1);
 }
 
-.skill-card:active::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(56,189,248,0.15);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: ripple 0.5s linear;
-    pointer-events: none;
-    z-index: 2;
-}
-
-@keyframes ripple {
-    0% { width: 0; height: 0; opacity: 0.7; }
-    100% { width: 200px; height: 200px; opacity: 0; }
+.skill-card:hover::before {
+    transform: translateX(0);
 }
 
 .skill-icon {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
-    transition: color 0.3s;
+    transition: none;
 }
 
 .skill-card:hover .skill-icon {
-    color: var(--primary-color);
+    transform: none;
 }
 
 .skill-card h4 {
@@ -1667,7 +1648,7 @@ body {
 /* Skills Page Styles */
 .skills-section {
     padding: 4rem 2rem 2rem 2rem;
-    background: linear-gradient(135deg, #f8fafc 60%, #e0f2fe 100%);
+    background: var(--light-bg);
 }
 
 .skills-container {
@@ -1708,30 +1689,10 @@ body {
     cursor: pointer;
 }
 
-.skill-card:hover, .skill-card:focus {
-    box-shadow: 0 8px 32px 0 rgba(56,189,248,0.18), 0 1.5px 6px 0 rgba(37,99,235,0.10);
-    transform: translateY(-8px) scale(1.04);
-    border-color: var(--primary-color);
-}
-
-.skill-card:active::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(56,189,248,0.15);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: ripple 0.5s linear;
-    pointer-events: none;
-    z-index: 2;
-}
-
-@keyframes ripple {
-    0% { width: 0; height: 0; opacity: 0.7; }
-    100% { width: 200px; height: 200px; opacity: 0; }
+.skill-card:hover {
+    box-shadow: var(--shadow-1);
+    transform: translateY(-6px) scale(1.03);
+    border-color: var(--secondary-color);
 }
 
 .skill-icon {
@@ -2246,71 +2207,6 @@ body {
     }
 }
 
-/* --- Enhanced Skills Page UI --- */
-.skills-header {
-    position: relative;
-    background: var(--light-bg);
-    padding: 2.5rem 0 1.5rem 0;
-    text-align: center;
-    overflow: hidden;
-}
-.skills-header .header-icon {
-    font-size: 2.8rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.7rem;
-    display: inline-block;
-    animation: floatIcon 3s ease-in-out infinite;
-}
-@keyframes floatIcon {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
-}
-.skills-section {
-    padding: 4rem 2rem 2rem 2rem;
-    background: linear-gradient(135deg, #f8fafc 60%, #e0f2fe 100%);
-}
-.skill-card {
-    background: var(--white);
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-    border-radius: 18px;
-    box-shadow: var(--shadow-2);
-    transition: box-shadow 0.3s, transform 0.3s;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid #e0e7ef;
-    cursor: pointer;
-}
-.skill-card:hover, .skill-card:focus {
-    box-shadow: 0 8px 32px 0 rgba(56,189,248,0.18), 0 1.5px 6px 0 rgba(37,99,235,0.10);
-    transform: translateY(-8px) scale(1.04);
-    border-color: var(--primary-color);
-}
-.skill-card:active::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(56,189,248,0.15);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    animation: ripple 0.5s linear;
-    pointer-events: none;
-    z-index: 2;
-}
-@keyframes ripple {
-    0% { width: 0; height: 0; opacity: 0.7; }
-    100% { width: 200px; height: 200px; opacity: 0; }
-}
-.skill-icon {
-    font-size: 2.2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    transition: color 0.3s;
-}
-.skill-card:hover .skill-icon {
-    color: var(--primary-color);
-}
-/* --- End Enhanced Skills UI --- */ 
+.project-link {
+    color: #fff !important;
+} 
