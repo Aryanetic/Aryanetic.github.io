@@ -96,6 +96,23 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)';
         });
     });
+
+    // Fix internal links to work on GitHub Pages (convert /page to page.html)
+    document.querySelectorAll('a').forEach(anchor => {
+        const href = anchor.getAttribute('href');
+        if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) return;
+        if (href.startsWith('/')) {
+            const path = href.slice(1);
+            if (path === '') {
+                anchor.setAttribute('href', 'index.html');
+            } else if (path.includes('#')) {
+                // Keep fragment navigation but remove leading slash
+                anchor.setAttribute('href', path);
+            } else {
+                anchor.setAttribute('href', `${path}.html`);
+            }
+        }
+    });
 });
 
 // Enhanced animate elements on scroll with different animations
