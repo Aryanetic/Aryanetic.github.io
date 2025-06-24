@@ -62,14 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Enhanced project card hover effects
     document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-            this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px) scale(1.02)';
         });
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
         });
     });
 
@@ -428,15 +426,9 @@ document.addEventListener('DOMContentLoaded', function() {
 function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        const icon = themeToggle.querySelector('i');
-        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
 }
 
-// Check for saved theme preference
+// Check for saved theme preference or default to light
 const savedTheme = localStorage.getItem('theme') || 'light';
 setTheme(savedTheme);
 
@@ -503,4 +495,21 @@ fadeElements.forEach(element => {
     element.style.transform = 'translateY(20px)';
     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     fadeObserver.observe(element);
+});
+
+// Add some interactivity to project cards
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// Remove any existing cursor animations
+document.addEventListener('DOMContentLoaded', () => {
+    const cursors = document.querySelectorAll('.cursor, .typed-cursor');
+    cursors.forEach(cursor => cursor.remove());
 }); 
