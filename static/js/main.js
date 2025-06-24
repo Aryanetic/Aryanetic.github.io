@@ -103,28 +103,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const trigger = dropdown.querySelector('.dropdown-trigger');
         const content = dropdown.querySelector('.dropdown-content');
         
+        // Change to click for mobile-friendly behavior
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
+            
+            // Close other dropdowns
+            dropdowns.forEach(d => {
+                if (d !== dropdown) {
+                    d.classList.remove('active');
+                    const submenu = d.querySelector('.submenu');
+                    if (submenu) submenu.classList.remove('active');
+                }
+            });
+            
             dropdown.classList.toggle('active');
         });
     });
 
-    // Handle submenus
+    // Handle submenus - change to click for better mobile support
     const submenuLinks = document.querySelectorAll('.has-submenu');
     submenuLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             const submenu = link.nextElementSibling;
             if (submenu && submenu.classList.contains('submenu')) {
-                submenu.classList.add('active');
+                submenu.classList.toggle('active');
             }
         });
-        
-        const submenu = link.nextElementSibling;
-        if (submenu && submenu.classList.contains('submenu')) {
-            link.parentElement.addEventListener('mouseleave', () => {
-                submenu.classList.remove('active');
-            });
-        }
     });
 
     // Close dropdowns when clicking outside
@@ -132,6 +139,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!event.target.closest('.dropdown')) {
             dropdowns.forEach(dropdown => {
                 dropdown.classList.remove('active');
+                const submenu = dropdown.querySelector('.submenu');
+                if (submenu) submenu.classList.remove('active');
             });
         }
     });
