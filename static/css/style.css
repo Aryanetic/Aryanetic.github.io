@@ -1594,65 +1594,134 @@ body {
     display: inline-block;
 }
 
-.dropdown-toggle {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.dropdown-toggle .fa-chevron-down {
-    transition: transform 0.3s ease;
-    font-size: 0.8rem;
-}
-
-.dropdown:hover .fa-chevron-down {
-    transform: rotate(180deg);
-}
-
-.dropdown-menu {
+.dropdown-content {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background: white;
-    border-radius: 10px;
-    padding: 0.5rem;
+    background: var(--white);
     min-width: 200px;
-    box-shadow: var(--shadow-1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s ease;
+    max-width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 1000;
 }
 
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.dropdown.active .dropdown-content {
+    display: block;
 }
 
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
+.dropdown-content a {
+    display: block;
+    padding: 0.5rem 1rem;
     color: var(--text-color);
     text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.dropdown-item:hover {
+.submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: var(--white);
+    min-width: 200px;
+    max-width: 250px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.submenu.active {
+    display: block;
+}
+
+.menu-title {
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--light-bg);
+}
+
+/* Skills Page Styles */
+.skills-section {
+    padding: 4rem 2rem;
     background: var(--light-bg);
+}
+
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skills-category {
+    margin-bottom: 4rem;
+}
+
+.skills-category h2 {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.skill-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-2);
+}
+
+.skill-icon {
+    font-size: 2rem;
     color: var(--secondary-color);
+    margin-bottom: 1rem;
 }
 
-.dropdown-item i {
+.skill-card h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
     font-size: 1.1rem;
-    transition: transform 0.3s ease;
 }
 
-.dropdown-item:hover i {
-    transform: scale(1.2);
+.skill-level {
+    height: 6px;
+    background: var(--light-bg);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--gradient-1);
+    width: 0;
+    transition: width 1s ease;
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .skill-card {
+        padding: 1.5rem;
+    }
+    
+    .skills-category h2 {
+        font-size: 1.3rem;
+    }
 }
 
 /* Launch Phases Styles */

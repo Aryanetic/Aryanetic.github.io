@@ -18,18 +18,18 @@
                     <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
                     <div class="dropdown-content">
                         <div class="menu-title">Projects</div>
-                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
-                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
-                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
-                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
+                        <a href="/project1.html">Project 1</a>
+                        <a href="/project2.html">Project 2</a>
+                        <a href="/project3.html">Project 3</a>
+                        <a href="/project4.html">Project 4</a>
                     </div>
                 </div>
                 <div class="dropdown">
                     <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
                     <div class="dropdown-content">
                         <div class="menu-title">Experience</div>
-                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
-                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
+                        <a href="/experience.html">Work Experience</a>
+                        <a href="/internship.html" class="has-submenu">Internships</a>
                         <div class="submenu">
                             <div class="menu-title">Internships</div>
                             <a href="/internship1.html">Internship 1</a>
@@ -58,7 +58,7 @@
     <section class="skills-section">
         <div class="skills-container">
             <!-- Marketing Skills -->
-            <div class="skills-category fade-up">
+            <div class="skills-category">
                 <h2><i class="fas fa-bullhorn"></i> Marketing Strategy</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
@@ -86,7 +86,7 @@
             </div>
 
             <!-- Analytics Skills -->
-            <div class="skills-category fade-up">
+            <div class="skills-category">
                 <h2><i class="fas fa-chart-bar"></i> Data & Analytics</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
@@ -114,7 +114,7 @@
             </div>
 
             <!-- Business Skills -->
-            <div class="skills-category fade-up">
+            <div class="skills-category">
                 <h2><i class="fas fa-briefcase"></i> Business Acumen</h2>
                 <div class="skills-grid">
                     <div class="skill-card">
@@ -143,107 +143,17 @@
         </div>
     </section>
 
-    <style>
-        .skills-section {
-            padding: 4rem 2rem;
-            background: var(--light-bg);
-        }
-
-        .skills-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .skills-category {
-            margin-bottom: 4rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .skills-category.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .skills-category h2 {
-            color: var(--text-color);
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.5rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-2);
-            transition: all 0.3s ease;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-1);
-        }
-
-        .skill-icon {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .skill-card h3 {
-            color: var(--text-color);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .skill-level {
-            height: 6px;
-            background: var(--light-bg);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: var(--gradient-1);
-            width: 0;
-            transition: width 1.5s ease;
-        }
-    </style>
-
     <script src="/static/js/main.js"></script>
     <script>
-        // Animate skill bars when they come into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    
-                    // Animate skill progress bars
-                    const skillBars = entry.target.querySelectorAll('.skill-level');
-                    skillBars.forEach(bar => {
-                        const level = bar.dataset.level;
-                        const progress = bar.querySelector('.skill-progress');
-                        progress.style.width = `${level}%`;
-                    });
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-level');
+            skillBars.forEach(bar => {
+                const level = bar.dataset.level;
+                const progress = bar.querySelector('.skill-progress');
+                setTimeout(() => {
+                    progress.style.width = `${level}%`;
+                }, 500);
             });
-        }, {
-            threshold: 0.1
-        });
-
-        document.querySelectorAll('.skills-category').forEach(category => {
-            observer.observe(category);
         });
     </script>
 </body>
