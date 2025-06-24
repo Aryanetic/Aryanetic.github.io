@@ -62,12 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Enhanced project card hover effects
     document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-10px) scale(1.02)';
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+            this.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
         });
         
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0) scale(1)';
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
         });
     });
 
@@ -418,98 +420,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Remove any cursor elements
-    const cursors = document.querySelectorAll('.cursor, .typed-cursor');
-    cursors.forEach(cursor => cursor.remove());
-});
-
-// Theme Toggle
-function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-// Check for saved theme preference or default to light
-const savedTheme = localStorage.getItem('theme') || 'light';
-setTheme(savedTheme);
-
-// Theme toggle button click handler
-document.getElementById('themeToggle')?.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    setTheme(currentTheme === 'dark' ? 'light' : 'dark');
-});
-
-// Dropdown functionality
-function toggleDropdown(event) {
-    event.preventDefault();
-    const dropdown = event.target.closest('.dropdown');
-    dropdown.classList.toggle('active');
-}
-
-// Close dropdowns when clicking outside
-document.addEventListener('click', (event) => {
-    if (!event.target.closest('.dropdown')) {
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    }
-});
-
-// Add click event listeners to dropdown toggles
-document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-    toggle.addEventListener('click', toggleDropdown);
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
-
-// Fade in elements on scroll
-const fadeElements = document.querySelectorAll('.fade-in');
-const fadeOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            fadeObserver.unobserve(entry.target);
-        }
-    });
-}, fadeOptions);
-
-fadeElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    fadeObserver.observe(element);
-});
-
-// Add some interactivity to project cards
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Remove any existing cursor animations
-document.addEventListener('DOMContentLoaded', () => {
     const cursors = document.querySelectorAll('.cursor, .typed-cursor');
     cursors.forEach(cursor => cursor.remove());
 }); 
