@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internships - Arya Ranjan</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .internships-hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: var(--gradient-1);
+            color: var(--white);
+            margin-bottom: 50px;
+        }
+
+        .internships-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .internships-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .internships-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .internship-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--shadow-1);
+            transition: transform 0.3s ease;
+        }
+
+        .internship-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .internship-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .internship-card p {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .internship-card .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--gradient-1);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .internship-card .btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-text">Arya Ranjan</a>
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Projects</div>
+                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
+                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
+                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
+                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Experience</div>
+                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
+                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
+                        <div class="submenu">
+                            <div class="menu-title">Internships</div>
+                            <a href="/internship1.html">Internship 1</a>
+                            <a href="/internship2.html">Internship 2</a>
+                            <a href="/internship3.html">Internship 3</a>
+                            <a href="/internship4.html">Internship 4</a>
+                            <a href="/internship5.html">Internship 5</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/skills.html"><i class="fas fa-tools"></i> Skills</a>
+                <a href="/analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="internships-hero">
+        <h1>My Internship Experience</h1>
+        <p>A journey through various roles that shaped my professional development</p>
+    </div>
+
+    <div class="internships-grid">
+        <div class="internship-card">
+            <h2>Digital Marketing Internship</h2>
+            <p>Focused on SEO optimization, content strategy, and digital marketing campaigns.</p>
+            <a href="/internship1.html" class="btn">Learn More</a>
+        </div>
+        <div class="internship-card">
+            <h2>Graduate Training Program</h2>
+            <p>Comprehensive training in business operations and management practices.</p>
+            <a href="/internship2.html" class="btn">Learn More</a>
+        </div>
+        <div class="internship-card">
+            <h2>Social Media Marketing</h2>
+            <p>Managed social media presence and developed engagement strategies.</p>
+            <a href="/internship3.html" class="btn">Learn More</a>
+        </div>
+        <div class="internship-card">
+            <h2>SUPA Internship</h2>
+            <p>Focused on user analytics and performance optimization.</p>
+            <a href="/internship4.html" class="btn">Learn More</a>
+        </div>
+        <div class="internship-card">
+            <h2>Customer Relationship Management</h2>
+            <p>Developed and maintained client relationships and service standards.</p>
+            <a href="/internship5.html" class="btn">Learn More</a>
+        </div>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 

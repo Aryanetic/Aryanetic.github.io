@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrepreneurship & Business Planning Project - Arya Ranjan</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -517,38 +517,35 @@
         <div class="nav-container">
             <a href="/" class="logo-text">Arya Ranjan</a>
             <div class="nav-links">
-                <a href="/" class="home-link"><i class="fas fa-home"></i> Home</a>
-                <a href="/#about"><i class="fas fa-user"></i> About</a>
-                <div class="dropdown" id="workDropdown">
-                    <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
                     <div class="dropdown-content">
-                        <div class="menu-title">Select Category</div>
-                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'internshipSubmenu')">
-                            <i class="fas fa-graduation-cap"></i> Internships
-                        </a>
-                        <div class="submenu" id="internshipSubmenu">
-                            <div class="menu-title">Internship Programs</div>
-                            <a href="/internship1"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
-                            <a href="/internship2"><i class="fas fa-building"></i> Graduate Training Program</a>
-                            <a href="/internship3"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
-                            <a href="/internship4"><i class="fas fa-users"></i> SUPA Internship</a>
-                            <a href="/internship5"><i class="fas fa-handshake"></i> Customer Relationship</a>
-                        </div>
-                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
-                            <i class="fas fa-project-diagram"></i> Projects
-                        </a>
-                        <div class="submenu" id="projectSubmenu">
-                            <div class="menu-title">Project Portfolio</div>
-                            <a href="/project1"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
-                            <a href="/project2"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
-                            <a href="/project3"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
-                            <a href="/project4"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
-                        </div>
-                        <a href="/experience"><i class="fas fa-building"></i> Work Experience</a>
+                        <div class="menu-title">Projects</div>
+                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
+                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
+                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
+                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
                     </div>
                 </div>
-                <a href="/#contact"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="/analytics" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Experience</div>
+                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
+                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
+                        <div class="submenu">
+                            <div class="menu-title">Internships</div>
+                            <a href="/internship1.html">Internship 1</a>
+                            <a href="/internship2.html">Internship 2</a>
+                            <a href="/internship3.html">Internship 3</a>
+                            <a href="/internship4.html">Internship 4</a>
+                            <a href="/internship5.html">Internship 5</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/skills.html"><i class="fas fa-tools"></i> Skills</a>
+                <a href="/analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
             </div>
         </div>
     </nav>

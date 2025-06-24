@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Internship - Arya Ranjan</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Navigation Styles */
+        .navbar {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #3F51B5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo-text:hover {
+            color: #1A237E;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #3F51B5;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: #E8EAF6;
+            color: #1A237E;
+        }
+
+        .nav-links a i {
+            margin-right: 5px;
+        }
+
+        .analytics-link {
+            background: #E8EAF6;
+        }
+
+        .analytics-link:hover {
+            background: #C5CAE9;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0.2rem 0;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .dropdown-content a i {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        .dropdown-content a.has-submenu::after {
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+        }
+
+        .menu-title {
+            font-weight: 600;
+            color: #3F51B5;
+            padding: 0.5rem 1.2rem;
+            border-bottom: 1px solid #E8EAF6;
+            margin-bottom: 0.5rem;
+        }
+
+        :root {
+            --primary-color: #4682B4;
+            --secondary-color: #6495ED;
+            --accent-color: #7077A1;
+            --light-accent: #F6B17A;
+            --text-color: #333;
+            --light-text: #7077A1;
+            --background: #F7F7F7;
+            --card-bg: #FFFFFF;
+            --white: #fff;
+            --light-bg: #f5f5f5;
+            --gradient-1: linear-gradient(135deg, #4682B4, #6495ED);
+            --gradient-2: linear-gradient(135deg, #6495ED, #4682B4);
+            --shadow-1: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-2: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-1);
+            padding: 0.8rem 1.5rem;
+            z-index: 1000;
+            box-shadow: var(--shadow-1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .home-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            color: var(--light-accent);
+            transform: translateX(5px);
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--light-accent);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--light-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .internship-hero {
+            position: relative;
+            padding: 100px 0;
+            background: var(--gradient-1);
+            color: var(--white);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .internship-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px) 0 0 / 50px 50px,
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px) 0 0 / 50px 50px;
+            animation: graphMove 20s linear infinite;
+        }
+
+        @keyframes graphMove {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(50px);
+            }
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.05) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.05) 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            animation: graphPattern 15s linear infinite;
+        }
+
+        @keyframes graphPattern {
+            0% {
+                background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            }
+            100% {
+                background-position: 20px 20px, 20px 30px, 30px 10px, 10px 20px;
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
+            color: white;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: white;
+        }
+
+        .sub-tagline {
+            font-size: 1rem;
+            color: var(--light-accent);
+            font-style: italic;
+        }
+
+        .internship-content {
+            max-width: 100%;
+            padding: 2rem 4rem;
+        }
+
+        .section {
+            margin-bottom: 1.5rem;
+            padding: 2rem 3rem;
+            border-radius: 10px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow-1);
+            text-align: left;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.6rem;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+        }
+
+        .description-content {
+            line-height: 1.6;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        .insights-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .insights-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--light-text);
+            font-size: 0.95rem;
+        }
+
+        .insights-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--background);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        .skill-tag i {
+            color: var(--accent-color);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--background);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .tool-card i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.8rem;
+        }
+
+        .tool-card h3 {
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .back-button {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-1);
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+        }
+
+        @media (max-width: 1200px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            .nav-link {
+                font-size: 0.9rem;
+            }
+            .internship-content {
+                padding: 1.5rem 2rem;
+            }
+            .section {
+                padding: 1.5rem 2rem;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .tagline {
+                font-size: 1.1rem;
+            }
+            .sub-tagline {
+                font-size: 0.9rem;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .overview-item {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .overview-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-1);
+        }
+
+        .overview-item i {
+            font-size: 1.5em;
+            color: var(--primary-color);
+        }
+
+        .overview-text h3 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .overview-text p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .insights-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .insights-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-bg);
+            color: var(--text-color);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insights-list li:last-child {
+            border-bottom: none;
+        }
+
+        .insights-list li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-1);
+        }
+
+        @media (max-width: 768px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: move 25s linear infinite;
+            bottom: -150px;
+        }
+
+        .animated-bg span:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .animated-bg span:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .animated-bg span:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .animated-bg span:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .animated-bg span:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .animated-bg span:nth-child(6) {
+            left: 85%;
+            width: 40px;
+            height: 40px;
+            animation-delay: 3s;
+            animation-duration: 15s;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .animated-bg span:nth-child(7) {
+            left: 15%;
+            width: 30px;
+            height: 30px;
+            animation-delay: 5s;
+            animation-duration: 20s;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .animated-bg span:nth-child(8) {
+            left: 50%;
+            width: 50px;
+            height: 50px;
+            animation-delay: 1s;
+            animation-duration: 22s;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+                border-radius: 0;
+            }
+            50% {
+                transform: translateY(-500px) rotate(360deg) scale(1.2);
+                opacity: 0.5;
+                border-radius: 50%;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg) scale(1);
+                opacity: 0;
+                border-radius: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-text">Arya Ranjan</a>
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Projects</div>
+                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
+                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
+                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
+                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Experience</div>
+                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
+                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
+                        <div class="submenu">
+                            <div class="menu-title">Internships</div>
+                            <a href="/internship1.html">Internship 1</a>
+                            <a href="/internship2.html">Internship 2</a>
+                            <a href="/internship3.html">Internship 3</a>
+                            <a href="/internship4.html">Internship 4</a>
+                            <a href="/internship5.html">Internship 5</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/skills.html"><i class="fas fa-tools"></i> Skills</a>
+                <a href="/analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="internship-hero">
+        <div class="animated-bg">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="hero-content">
+            <h1>Social Media Internship</h1>
+            <p class="tagline">Ashman Foundation</p>
+            <p class="sub-tagline">"Amplifying Impact Through Digital Storytelling"</p>
+        </div>
+    </div>
+
+    <div class="internship-content">
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-info-circle"></i>
+                Overview
+            </h2>
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="overview-text">
+                        <h3>Duration</h3>
+                        <p>3 Months</p>
+                    </div>
+                </div>
+                <div class="overview-item">
+                    <i class="fas fa-building"></i>
+                    <div class="overview-text">
+                        <h3>Company</h3>
+                        <p>Ashman Foundation</p>
+                    </div>
+                </div>
+                <div class="overview-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="overview-text">
+                        <h3>Role</h3>
+                        <p>Social Media Intern</p>
+                    </div>
+                </div>
+                <div class="overview-item">
+                    <i class="fas fa-trophy"></i>
+                    <div class="overview-text">
+                        <h3>Achievement</h3>
+                        <p>Increased Engagement by 20%</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-book"></i>
+                About
+            </h2>
+            <div class="description-content">
+                <p>I worked as a social media intern for this NGO, where I collaborated with multiple influencers and established paid collaborations. This was during the COVID period, so the influencers had to collect funds for COVID victims, women, and children.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-tasks"></i>
+                Key Responsibilities
+            </h2>
+            <div class="insights-list">
+                <ul>
+                    <li>Executed 10 social media campaigns, increasing overall engagement by 20%</li>
+                    <li>Connected with 70+ influencers for collaborations to increase donations and brand awareness</li>
+                    <li>Handled the social media account of the NGO for 2 months</li>
+                    <li>Designed various posters for the NGO that were posted on social media accounts</li>
+                    <li>Learned how to target different segments of people on different social media channels</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                Key Learnings
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-tag">
+                    <i class="fas fa-hashtag"></i>
+                    Social Media Marketing
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-pen-fancy"></i>
+                    Content Marketing
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-users"></i>
+                    Influencer Marketing
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-bullseye"></i>
+                    Segmentation Targeting
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-chart-bar"></i>
+                    Digital Marketing
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-key"></i>
+                    Keyword Management
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-chart-line"></i>
+                    Analytics & Reporting
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-handshake"></i>
+                    Partnership Management
+                </div>
+                <div class="skill-tag">
+                    <i class="fas fa-bullhorn"></i>
+                    Campaign Strategy
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-tools"></i>
+                Tools Used
+            </h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <i class="fab fa-facebook"></i>
+                    <h3>Facebook</h3>
+                </div>
+                <div class="tool-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                </div>
+                <div class="tool-card">
+                    <i class="fab fa-twitter"></i>
+                    <h3>Twitter</h3>
+                </div>
+                <div class="tool-card">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <a href="/" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+    </a>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html> 

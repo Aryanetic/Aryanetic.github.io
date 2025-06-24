@@ -4,17 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills - Arya Ranjan</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <h1 class="logo-text">Arya Ranjan</h1>
+            <a href="/" class="logo-text">Arya Ranjan</a>
             <div class="nav-links">
-                <a href="/"><i class="fas fa-arrow-left"></i> Back to Home</a>
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Projects</div>
+                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
+                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
+                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
+                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Experience</div>
+                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
+                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
+                        <div class="submenu">
+                            <div class="menu-title">Internships</div>
+                            <a href="/internship1.html">Internship 1</a>
+                            <a href="/internship2.html">Internship 2</a>
+                            <a href="/internship3.html">Internship 3</a>
+                            <a href="/internship4.html">Internship 4</a>
+                            <a href="/internship5.html">Internship 5</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/skills.html"><i class="fas fa-tools"></i> Skills</a>
+                <a href="/analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
             </div>
         </div>
     </nav>
@@ -194,6 +221,7 @@
         }
     </style>
 
+    <script src="/static/js/main.js"></script>
     <script>
         // Animate skill bars when they come into view
         const observer = new IntersectionObserver((entries) => {

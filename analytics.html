@@ -3,99 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analytics Dashboard - Coming Soon</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Analytics - Arya Ranjan</title>
+    <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #4682B4;
-            --secondary-color: #6495ED;
-            --text-color: #333;
-            --white: #fff;
-            --light-bg: #f5f5f5;
-            --gradient-1: linear-gradient(135deg, #4682B4, #6495ED);
-            --shadow-1: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light-bg);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding-top: 60px;
-        }
-
-        .navbar {
-            background: var(--white);
-            box-shadow: var(--shadow-1);
-            padding: 0.3rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .coming-soon {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .analytics-message {
             text-align: center;
-            padding: 2rem;
-            background: var(--white);
-            margin: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow-1);
-        }
-
-        .coming-soon h1 {
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .coming-soon p {
-            color: var(--text-color);
-            font-size: 1.1rem;
+            padding: 100px 20px;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .btn-primary {
-            background: var(--gradient-1);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+        .analytics-message h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-1);
+        .analytics-message p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .analytics-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand" href="/">Arya Ranjan</a>
-            <div class="d-flex">
-                <a href="/" class="btn btn-outline-primary me-2">Home</a>
-                <a href="/analytics" class="btn btn-primary">Analytics</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-text">Arya Ranjan</a>
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Projects</div>
+                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
+                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
+                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
+                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Experience</div>
+                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
+                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
+                        <div class="submenu">
+                            <div class="menu-title">Internships</div>
+                            <a href="/internship1.html">Internship 1</a>
+                            <a href="/internship2.html">Internship 2</a>
+                            <a href="/internship3.html">Internship 3</a>
+                            <a href="/internship4.html">Internship 4</a>
+                            <a href="/internship5.html">Internship 5</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/skills.html"><i class="fas fa-tools"></i> Skills</a>
+                <a href="/analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
             </div>
         </div>
     </nav>
 
-    <div class="coming-soon">
-        <div>
-            <h1>Analytics Dashboard Coming Soon!</h1>
-            <p>We're working on building a comprehensive analytics dashboard to provide insights about portfolio engagement and visitor interactions. Stay tuned for updates!</p>
-            <div class="mt-4">
-                <a href="/" class="btn btn-primary">Back to Home</a>
-            </div>
-        </div>
+    <div class="analytics-message">
+        <i class="fas fa-chart-line analytics-icon"></i>
+        <h1>Analytics</h1>
+        <p>Analytics functionality is currently disabled in static mode. This feature requires a server-side implementation to track and display analytics data.</p>
+        <p>Please check back later for updates on analytics functionality.</p>
     </div>
+
+    <script src="/static/js/main.js"></script>
 </body>
 </html> 

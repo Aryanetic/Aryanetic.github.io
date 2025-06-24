@@ -96,6 +96,151 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)';
         });
     });
+
+    // Handle dropdowns
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const trigger = dropdown.querySelector('.dropdown-trigger');
+        const content = dropdown.querySelector('.dropdown-content');
+        
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+        });
+    });
+
+    // Handle submenus
+    const submenuLinks = document.querySelectorAll('.has-submenu');
+    submenuLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            const submenu = link.nextElementSibling;
+            if (submenu && submenu.classList.contains('submenu')) {
+                submenu.classList.add('active');
+            }
+        });
+        
+        const submenu = link.nextElementSibling;
+        if (submenu && submenu.classList.contains('submenu')) {
+            link.parentElement.addEventListener('mouseleave', () => {
+                submenu.classList.remove('active');
+            });
+        }
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.dropdown')) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+
+    // Loading overlay
+    const loadingOverlay = document.querySelector('.loading-overlay');
+    if (loadingOverlay) {
+        setTimeout(() => {
+            loadingOverlay.style.opacity = '0';
+            setTimeout(() => loadingOverlay.style.display = 'none', 500);
+        }, 500);
+    }
+
+    // Progress bar
+    const progressBar = document.querySelector('.progress-bar');
+    if (progressBar) {
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (window.scrollY / windowHeight) * 100;
+            progressBar.style.transform = `scaleX(${progress / 100})`;
+        });
+    }
+
+    // Back to top button
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Animate elements
+    const animateElements = () => {
+        // Animate tags
+        document.querySelectorAll('.tag').forEach((tag, index) => {
+            tag.style.animation = `fadeInRight 0.5s ease forwards ${index * 0.2}s`;
+        });
+
+        // Animate feature cards
+        document.querySelectorAll('.feature-item').forEach((card, index) => {
+            card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.2}s`;
+            
+            // Add hover effect for icons
+            const icon = card.querySelector('i');
+            if (icon) {
+                card.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'scale(1.2) rotate(360deg)';
+                    icon.style.transition = 'transform 0.4s ease';
+                });
+                card.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'scale(1) rotate(0)';
+                });
+            }
+        });
+
+        // Animate result numbers
+        document.querySelectorAll('.result-number').forEach((number, index) => {
+            const finalValue = parseInt(number.textContent);
+            let currentValue = 0;
+            const duration = 2000;
+            const interval = 50;
+            const steps = duration / interval;
+            const increment = finalValue / steps;
+
+            number.textContent = '0%';
+            number.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.2}s`;
+
+            setTimeout(() => {
+                const counter = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        currentValue = finalValue;
+                        clearInterval(counter);
+                    }
+                    number.textContent = Math.round(currentValue) + '%';
+                }, interval);
+            }, index * 200);
+        });
+    };
+
+    // Run animations
+    animateElements();
+
+    // Add scroll reveal effect for sections
+    const contentObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.content-section').forEach(section => {
+        contentObserver.observe(section);
+    });
 });
 
 // Enhanced animate elements on scroll with different animations

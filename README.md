@@ -1,47 +1,40 @@
 # Arya Ranjan's Portfolio
 
-Welcome to my personal portfolio website! This site showcases my projects, skills, and professional experience.
+A modern, responsive portfolio website showcasing my professional experience, projects, and skills in marketing and business development.
 
 ## Overview
 
-This is a static website built with HTML, CSS, and JavaScript, designed to be hosted on GitHub Pages. The site features:
+This portfolio website is built with modern HTML, CSS, and JavaScript, featuring:
 
 - Responsive design that works on all devices
-- Modern UI with smooth animations
-- Project showcase
-- Skills and experience sections
-- Internship experiences
-- Analytics dashboard (coming soon)
+- Clean and professional UI/UX
+- Interactive project showcases
+- Detailed experience timeline
+- Skills visualization
+- Contact information
 
-## Structure
+## Sections
 
-```
-.
-├── index.html              # Main landing page
-├── analytics.html          # Analytics dashboard (coming soon)
-├── experience.html         # Experience page
-├── skills.html            # Skills showcase
-├── project1-4.html        # Project pages
-├── internship1-5.html     # Internship experience pages
-├── static/                # Static assets
-│   ├── css/              # Stylesheets
-│   ├── js/               # JavaScript files
-│   └── images/           # Image assets
-└── README.md             # This file
-```
+- **Home**: Introduction and overview
+- **Projects**: Showcase of key projects
+- **Experience**: Professional experience and internships
+- **Skills**: Technical and professional skills
+- **Contact**: Ways to get in touch
 
-## Local Development
+## Development
 
-To run this site locally:
+The site is built with:
 
-1. Clone the repository
-2. Open `index.html` in your browser
-3. No build process or server required!
+- HTML5
+- CSS3 (with modern features like Grid and Flexbox)
+- JavaScript (ES6+)
+- Font Awesome for icons
+- Google Fonts for typography
 
 ## Deployment
 
-This site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
+The site is deployed using GitHub Pages. Any push to the main branch will automatically trigger a deployment through GitHub Actions.
 
-## Contact
+## License
 
-Feel free to reach out to me for any questions or opportunities! 
+This project is licensed under the MIT License - see the LICENSE file for details. 
