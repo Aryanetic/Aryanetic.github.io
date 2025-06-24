@@ -1,74 +1,65 @@
-# Real-Time Analytics Dashboard
+# Portfolio Website
 
-A powerful real-time analytics dashboard built with Streamlit that provides comprehensive insights into website traffic and user behavior.
+This is a static portfolio website built with HTML, CSS, and JavaScript, designed to be hosted on GitHub Pages.
 
 ## Features
 
-- Real-time user tracking and analytics
-- Traffic source analysis
-- Geographic distribution of visitors
-- Device type breakdown
-- Page engagement metrics
-- Search visibility tracking
-- Bounce rate analysis
-- Time spent on pages
-- Active user monitoring
-- Event tracking
+- Responsive design
+- Project showcase
+- Work experience timeline
+- Skills section
+- Modern UI with animations
+- Interactive navigation
 
-## Installation
+## Deployment
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd <repository-name>
+This website is configured to be deployed on GitHub Pages. To deploy:
+
+1. Fork this repository
+2. Go to the repository settings
+3. Navigate to the "Pages" section
+4. Under "Source", select the main branch
+5. Click "Save"
+
+The site will be available at `https://[your-username].github.io/[repository-name]`
+
+## Local Development
+
+To run this website locally:
+
+1. Clone the repository
+2. Open `index.html` in your browser
+3. Make changes to the HTML, CSS, or JavaScript files
+4. Refresh the browser to see your changes
+
+## File Structure
+
+```
+├── index.html              # Main entry point
+├── project1.html          # Project pages
+├── project2.html
+├── project3.html
+├── project4.html
+├── internship1.html       # Internship experience pages
+├── internship2.html
+├── internship3.html
+├── internship4.html
+├── internship5.html
+├── skills.html           # Skills showcase page
+├── static/
+│   ├── css/             # Stylesheets
+│   ├── js/              # JavaScript files
+│   └── images/          # Image assets
+└── README.md            # This file
 ```
 
-2. Create a virtual environment (optional but recommended):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
+## Customization
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
-
-1. Start the dashboard:
-```bash
-streamlit run analytics_dashboard.py
-```
-
-2. Open your web browser and navigate to the URL shown in the terminal (typically http://localhost:8501)
-
-## Data Structure
-
-The analytics data is stored in `data/analytics_data.json` with the following structure:
-
-- `sessions`: User session data including start time, pages visited, and time spent
-- `page_views`: Page view counts
-- `page_engagement`: Detailed page engagement metrics
-- `real_time_data`: Real-time analytics including:
-  - Active users
-  - Current page views
-  - Traffic sources
-  - Geographic data
-  - Device types
-  - Search visibility
-  - Bounce rates
-  - Time spent
-  - Events
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+1. Update the content in HTML files to match your portfolio
+2. Modify the CSS in `static/css/` to change the styling
+3. Add your own images to `static/images/`
+4. Update the JavaScript in `static/js/` for custom interactions
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is open source and available under the MIT License. 
