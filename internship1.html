@@ -1,15 +1,10 @@
-{% extends "base.html" %}
-
-{% block title %}Digital Marketing Internship - Arya Ranjan{% endblock %}
-
-{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Marketing and SEO Internship - Arya Ranjan</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Digital Marketing Internship - Arya Ranjan</title>
+    <link rel="stylesheet" href="static/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -431,165 +426,70 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo-text">Arya Ranjan</a>
+            <a href="index.html" class="logo-text">Arya Ranjan</a>
             <div class="nav-links">
-                <a href="/#about"><i class="fas fa-user"></i> About</a>
+                <a href="index.html#about"><i class="fas fa-user"></i> About</a>
                 <div class="dropdown" id="workDropdown">
-                    <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
+                    <a href="#" class="dropdown-toggle"><i class="fas fa-briefcase"></i> My Work</a>
                     <div class="dropdown-content">
-                        <div class="menu-title">Select Category</div>
-                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'internshipSubmenu')">
-                            <i class="fas fa-graduation-cap"></i> Internships
-                        </a>
-                        <div class="submenu" id="internshipSubmenu">
-                            <div class="menu-title">Internship Programs</div>
-                            <a href="/internship1"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
-                            <a href="/internship2"><i class="fas fa-building"></i> Graduate Training Program</a>
-                            <a href="/internship3"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
-                            <a href="/internship4"><i class="fas fa-users"></i> SUPA Internship</a>
-                            <a href="/internship5"><i class="fas fa-handshake"></i> Customer Relationship</a>
-                        </div>
-                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
-                            <i class="fas fa-project-diagram"></i> Projects
-                        </a>
-                        <div class="submenu" id="projectSubmenu">
-                            <div class="menu-title">Project Portfolio</div>
-                            <a href="/project1"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
-                            <a href="/project2"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
-                            <a href="/project3"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
-                            <a href="/project4"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
-                        </div>
-                        <a href="/experience"><i class="fas fa-building"></i> Work Experience</a>
+                        <div class="menu-title">Experience</div>
+                        <a href="index.html#experience"><i class="fas fa-building"></i> Work Experience</a>
+                        <a href="index.html#internship"><i class="fas fa-graduation-cap"></i> Internships</a>
+                        <a href="index.html#projects"><i class="fas fa-project-diagram"></i> Projects</a>
                     </div>
                 </div>
-                <a href="/#contact"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="/analytics" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            </div>
-        </nav>
-
-    <div class="internship-hero">
-        <div class="hero-content">
-            <h1>Digital Marketing Internship</h1>
-            <p class="tagline">Gaining hands-on experience in the dynamic world of digital marketing</p>
-            <p class="sub-tagline">During my Digital Marketing internship, I gained hands-on experience in various aspects of digital marketing, including SEO, social media management, and content creation. I worked closely with the marketing team to develop and implement digital strategies that drove engagement and growth.</p>
         </div>
-    </div>
+    </nav>
 
-    <div class="internship-content">
-        <div class="overview-section">
-            <h2>Overview</h2>
-            <div class="overview-grid">
-            <div class="overview-item">
-                    <h3>Duration</h3>
-                    <p>3 Months</p>
-            </div>
-            <div class="overview-item">
-                    <h3>Company</h3>
-                    <p>Akansha - E-commerce Startup</p>
-            </div>
-            <div class="overview-item">
-                    <h3>Role</h3>
-                    <p>Graduate Trainee</p>
-                </div>
-                <div class="overview-item achievement">
-                    <h3>Achievement</h3>
-                    <p>Improved Google search rankings of Capri Global and Anveya to top 10, enhancing brand visibility and customer acquisition</p>
+    <div class="project-detail">
+        <div class="project-hero">
+            <div class="project-content">
+                <h1>Digital Marketing Internship</h1>
+                <p class="project-subtitle">Gaining hands-on experience in the dynamic world of digital marketing</p>
+                <div class="tags-container">
+                    <span class="tag">Digital Marketing</span>
+                    <span class="tag">SEO</span>
+                    <span class="tag">Social Media</span>
+                    <span class="tag">Content Creation</span>
                 </div>
             </div>
         </div>
 
-        <div class="section">
-            <h2>About the Role</h2>
-            <p>During my Digital Marketing internship, I gained hands-on experience in various aspects of digital marketing, including SEO, social media management, and content creation. I worked closely with the marketing team to develop and implement digital strategies that drove engagement and growth.</p>
-                </div>
-
-        <div class="section">
-            <h2>Key Responsibilities</h2>
-            <div class="overview-grid">
-                <div class="overview-item">
-                    <i class="fas fa-search"></i>
-                    <h3>SEO Optimization</h3>
-                    <p>Conducted keyword research and implemented SEO best practices to improve website visibility and ranking.</p>
-                </div>
-                <div class="overview-item">
-                    <i class="fas fa-share-alt"></i>
-                    <h3>Social Media Management</h3>
-                    <p>Created and managed engaging content across various social media platforms to increase brand awareness.</p>
-                </div>
-                <div class="overview-item">
-                    <i class="fas fa-pencil-alt"></i>
-                    <h3>Content Creation</h3>
-                    <p>Developed compelling blog posts and marketing copy that resonated with target audiences.</p>
-                </div>
+        <div class="project-detail-content">
+            <div class="project-section fade-up">
+                <h2>Overview</h2>
+                <p>During my Digital Marketing internship, I gained hands-on experience in various aspects of digital marketing, including SEO, social media management, and content creation. I worked closely with the marketing team to develop and implement digital strategies that drove engagement and growth.</p>
             </div>
-        </div>
 
-        <div class="section">
-            <h2>Tools & Technologies</h2>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Google Analytics</h3>
-                    <p>Tracked and analyzed website traffic and user behavior to optimize marketing strategies.</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-hashtag"></i>
-                    <h3>Social Media Tools</h3>
-                    <p>Utilized various social media management platforms for content scheduling and analytics.</p>
-                </div>
-                <div class="tool-card">
-                    <i class="fas fa-search"></i>
-                    <h3>SEO Tools</h3>
-                    <p>Used industry-standard SEO tools for keyword research and performance tracking.</p>
-                </div>
+            <div class="project-section fade-up">
+                <h2>Key Responsibilities</h2>
+                <ul class="feature-list">
+                    <li>Conducted keyword research and optimized website content for SEO</li>
+                    <li>Managed social media accounts and created engaging content</li>
+                    <li>Analyzed marketing metrics and prepared performance reports</li>
+                    <li>Assisted in email marketing campaigns and newsletter creation</li>
+                </ul>
             </div>
-        </div>
 
-        <div class="section">
-            <h2>Key Elements</h2>
-            <div class="skills-grid">
-                <span class="skill-tag"><i class="fas fa-bullhorn"></i> Digital Marketing</span>
-                <span class="skill-tag"><i class="fas fa-chart-bar"></i> Analytics</span>
-                <span class="skill-tag"><i class="fas fa-users"></i> Social Media</span>
-                <span class="skill-tag"><i class="fas fa-search"></i> SEO</span>
-                <span class="skill-tag"><i class="fas fa-pencil-alt"></i> Content Creation</span>
-                <span class="skill-tag"><i class="fas fa-chart-line"></i> Performance Tracking</span>
+            <div class="project-section fade-up">
+                <h2>Impact & Results</h2>
+                <ul class="impact-list">
+                    <li>Increased social media engagement by 45%</li>
+                    <li>Improved website organic traffic by 30%</li>
+                    <li>Successfully launched 5 email marketing campaigns</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <a href="/" class="back-button">
-        <i class="fas fa-arrow-left"></i>
-        Back to Home
-    </a>
-
-    <script>
-        function toggleDropdown(event) {
-            event.preventDefault();
-            const dropdown = document.getElementById('workDropdown');
-            dropdown.classList.toggle('active');
-        }
-
-        function toggleSubmenu(event, submenuId) {
-            event.preventDefault();
-            const submenu = document.getElementById(submenuId);
-            submenu.classList.toggle('active');
-        }
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
-                if (!dropdown.contains(event.target)) {
-                    dropdown.classList.remove('active');
-                }
-            });
-        });
-    </script>
+    <script src="static/js/main.js"></script>
 </body>
-</html>
-{% endblock %} 
+</html> 
