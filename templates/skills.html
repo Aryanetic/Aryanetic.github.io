@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - Arya Ranjan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo-text">Arya Ranjan</h1>
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Skills Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>My Skills & Expertise</h1>
+            <p>A blend of marketing strategy, data analytics, and business acumen</p>
+        </div>
+    </section>
+
+    <!-- Skills Grid -->
+    <section class="skills-section">
+        <div class="skills-container">
+            <!-- Marketing Skills -->
+            <div class="skills-category fade-up">
+                <h2><i class="fas fa-bullhorn"></i> Marketing Strategy</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>B2B Marketing</h3>
+                        <div class="skill-level" data-level="95">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Campaign Analytics</h3>
+                        <div class="skill-level" data-level="90">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-users"></i></div>
+                        <h3>Account Management</h3>
+                        <div class="skill-level" data-level="95">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Skills -->
+            <div class="skills-category fade-up">
+                <h2><i class="fas fa-chart-bar"></i> Data & Analytics</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-database"></i></div>
+                        <h3>Data Analysis</h3>
+                        <div class="skill-level" data-level="85">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-chart-pie"></i></div>
+                        <h3>Visualization</h3>
+                        <div class="skill-level" data-level="80">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Market Research</h3>
+                        <div class="skill-level" data-level="90">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Skills -->
+            <div class="skills-category fade-up">
+                <h2><i class="fas fa-briefcase"></i> Business Acumen</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-comments-dollar"></i></div>
+                        <h3>Sales Strategy</h3>
+                        <div class="skill-level" data-level="95">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-tasks"></i></div>
+                        <h3>Project Management</h3>
+                        <div class="skill-level" data-level="85">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Client Relations</h3>
+                        <div class="skill-level" data-level="95">
+                            <div class="skill-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .skills-section {
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-category {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .skills-category.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skills-category h2 {
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-2);
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-1);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card h3 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-level {
+            height: 6px;
+            background: var(--light-bg);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--gradient-1);
+            width: 0;
+            transition: width 1.5s ease;
+        }
+    </style>
+
+    <script>
+        // Animate skill bars when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    
+                    // Animate skill progress bars
+                    const skillBars = entry.target.querySelectorAll('.skill-level');
+                    skillBars.forEach(bar => {
+                        const level = bar.dataset.level;
+                        const progress = bar.querySelector('.skill-progress');
+                        progress.style.width = `${level}%`;
+                    });
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.skills-category').forEach(category => {
+            observer.observe(category);
+        });
+    </script>
+</body>
+</html> 

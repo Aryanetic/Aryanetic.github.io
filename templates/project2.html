@@ -1,0 +1,781 @@
+{% extends "base.html" %}
+
+{% block title %}Marketing Analytics Project - Arya Ranjan{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Analytics Project - Arya Ranjan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4682B4;
+            --secondary-color: #6495ED;
+            --text-color: #333;
+            --white: #fff;
+            --light-bg: #f5f5f5;
+            --gradient-1: linear-gradient(135deg, #4682B4, #6495ED);
+            --gradient-2: linear-gradient(135deg, #6495ED, #4682B4);
+            --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-2: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow-1);
+            padding: 0.3rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow-2);
+            border-radius: 10px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 0.8rem 1.2rem;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0.2rem 0;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--gradient-1);
+            color: var(--white);
+        }
+
+        .dropdown-content a i {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%;
+            top: 0;
+            background: var(--white);
+            min-width: 250px;
+            box-shadow: var(--shadow-2);
+            border-radius: 10px;
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        .dropdown-content a.has-submenu::after {
+            content: '\f054';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+        }
+
+        .menu-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            padding: 0.5rem 1.2rem;
+            border-bottom: 1px solid var(--light-bg);
+            margin-bottom: 0.5rem;
+        }
+
+        .analytics-link {
+            background: var(--gradient-1);
+            color: var(--white) !important;
+        }
+
+        .analytics-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+
+        /* Project Hero Section */
+        .project-hero {
+            position: relative;
+            padding: 80px 0;
+            background: var(--gradient-1);
+            color: var(--white);
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .project-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Content Sections */
+        .project-content {
+            max-width: 1200px;
+            margin: -40px auto 0;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px 60px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-1);
+        }
+
+        .section-header {
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: 1.6em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header h2 i {
+            font-size: 0.9em;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .feature-icon {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: var(--text-color);
+        }
+
+        .feature-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .skill-tag {
+            background: var(--light-bg);
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 0.95em;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .tool-card {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .tool-card i {
+            font-size: 1.8em;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover i {
+            color: var(--white);
+        }
+
+        /* Stats Section */
+        .overview-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .stat-card {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .stat-card i {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-card h3 {
+            font-size: 1.8em;
+            color: var(--text-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: var(--text-color);
+            opacity: 0.8;
+            font-size: 0.95em;
+        }
+
+        /* Back to Home Button */
+        .back-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient-1);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow-2);
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-size: 0.95em;
+        }
+
+        .back-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+        }
+
+        .back-button i {
+            font-size: 1.1rem;
+        }
+
+        /* Know More Section */
+        .know-more-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px 60px;
+            margin: 40px auto;
+            box-shadow: var(--shadow-1);
+            max-width: 1200px;
+        }
+
+        .know-more-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .know-more-header h2 {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            margin: 0;
+        }
+
+        .know-more-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .know-more-item {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .know-more-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .know-more-item h3 {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .know-more-item p {
+            color: var(--text-color);
+            font-size: 0.85em;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin: 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .know-more-item p::before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: var(--primary-color);
+        }
+
+        .view-project-link {
+            display: block;
+            background: var(--gradient-1);
+            color: var(--white);
+            text-decoration: none;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+
+        .view-project-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .view-project-link i {
+            margin-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2em;
+            }
+
+            .project-content {
+                padding: 0 30px;
+            }
+
+            .content-section {
+                padding: 25px 40px;
+            }
+
+            .hero-content {
+                padding: 0 25px;
+            }
+
+            .nav-container {
+                padding: 0 25px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .back-button {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            .know-more-section {
+                padding: 30px 40px;
+                margin: 30px auto;
+            }
+
+            .know-more-content {
+                grid-template-columns: 1fr;
+            }
+
+            .view-project-link {
+                padding: 15px 25px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo-text">Arya Ranjan</a>
+            <div class="nav-links">
+                <a href="/#about"><i class="fas fa-user"></i> About</a>
+                <div class="dropdown" id="workDropdown">
+                    <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
+                    <div class="dropdown-content">
+                        <div class="menu-title">Select Category</div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'internshipSubmenu')">
+                            <i class="fas fa-graduation-cap"></i> Internships
+                        </a>
+                        <div class="submenu" id="internshipSubmenu">
+                            <div class="menu-title">Internship Programs</div>
+                            <a href="/internship1"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
+                            <a href="/internship2"><i class="fas fa-building"></i> Graduate Training Program</a>
+                            <a href="/internship3"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
+                            <a href="/internship4"><i class="fas fa-users"></i> SUPA Internship</a>
+                            <a href="/internship5"><i class="fas fa-handshake"></i> Customer Relationship</a>
+                        </div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
+                            <i class="fas fa-project-diagram"></i> Projects
+                        </a>
+                        <div class="submenu" id="projectSubmenu">
+                            <div class="menu-title">Project Portfolio</div>
+                            <a href="/project1"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
+                            <a href="/project2"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
+                            <a href="/project3"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
+                            <a href="/project4"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
+                        </div>
+                        <a href="/experience"><i class="fas fa-building"></i> Work Experience</a>
+                    </div>
+                </div>
+                <a href="/#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/analytics" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="project-hero">
+        <div class="hero-content">
+            <h1 class="project-title">Marketing Analytics</h1>
+            <div class="tags-container">
+                <span class="tag">Campaign Analysis</span>
+                <span class="tag">Market Research</span>
+                <span class="tag">Data Visualization</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-content">
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-chart-pie"></i> Project Overview</h2>
+            </div>
+            <div class="section-body">
+                <p>I conducted market research and campaign analysis of two popular brands Swiggy and Zomato in which I compared the popularity of different campaigns by the two companies. This also compared how different strategies are used by these brands to grab the attention of the audience.</p>
+                <div class="overview-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3>100</h3>
+                        <p>Survey Responses</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>85%</h3>
+                        <p>Data Accuracy</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>3 Months</h3>
+                        <p>Project Duration</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="know-more-section">
+            <div class="know-more-header">
+                <i class="fas fa-info-circle"></i>
+                <h2>Know About Project</h2>
+            </div>
+            <div class="know-more-content">
+                <div class="know-more-item">
+                    <h3><i class="fas fa-bullseye"></i> Project Objective</h3>
+                    <p>Analyze and compare marketing strategies of Swiggy and Zomato to understand their campaign effectiveness and audience engagement patterns.</p>
+                </div>
+                <div class="know-more-item">
+                    <h3><i class="fas fa-chart-line"></i> Key Findings</h3>
+                    <p>Identified successful campaign elements, audience preferences, and market positioning strategies that contribute to brand success.</p>
+                </div>
+                <div class="know-more-item">
+                    <h3><i class="fas fa-lightbulb"></i> Impact</h3>
+                    <p>Provided valuable insights for marketing strategy development and helped understand effective campaign elements in the food delivery industry.</p>
+                </div>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1YehLgnG5JAHm0kQOSZBNm24OYe6EyCgi?usp=drive_link" 
+               target="_blank" 
+               class="view-project-link">
+                View Complete Project Details <i class="fas fa-external-link-alt"></i>
+            </a>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-star"></i> Key Elements</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>Collecting data from different segments of population, different age groups and then analyzing the data using various tools.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data Visualization</h3>
+                    <p>Creating interactive dashboards and visual representations that transform complex data into clear, actionable insights for better decision-making.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Market Research</h3>
+                    <p>Researching about various campaigns of these two brands to understand their marketing strategies and impact.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Campaign Analysis</h3>
+                    <p>Understanding the hidden meaning behind the campaigns and trying to understand what is the strategy of brands behind the campaigns.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-graduation-cap"></i> Skills Enhanced</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-tag">Marketing Analytics</div>
+                <div class="skill-tag">Campaign Analysis</div>
+                <div class="skill-tag">Market Research</div>
+                <div class="skill-tag">Data Analysis</div>
+                <div class="skill-tag">Data Visualization</div>
+                <div class="skill-tag">Marketing Strategy</div>
+                <div class="skill-tag">Social Media Marketing</div>
+                <div class="skill-tag">Email Marketing</div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="section-header">
+                <h2><i class="fas fa-tools"></i> Tools Used</h2>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <i class="fab fa-google"></i>
+                    <span>Google Forms</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Google Analytics</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Tableau</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-palette"></i>
+                    <span>Canva</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-file-excel"></i>
+                    <span>Excel</span>
+                </div>
+                <div class="tool-card">
+                    <i class="fas fa-robot"></i>
+                    <span>AI</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <a href="/" class="back-button">
+        <i class="fas fa-home"></i>
+        Back to Home
+    </a>
+
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('workDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function toggleSubmenu(event, submenuId) {
+            event.preventDefault();
+            const submenu = document.getElementById(submenuId);
+            submenu.classList.toggle('active');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
+{% endblock %} 
