@@ -1,0 +1,120 @@
+{
+    "sessions": {
+        "d24fb4cf-ef3f-40b9-b9bc-423e36feb548": {
+            "start_time": 1750790584.998606,
+            "last_activity": 1750790584.998606,
+            "pages": [
+                "/"
+            ],
+            "total_time": 0,
+            "page_times": {},
+            "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "referrer": null,
+            "device_type": "desktop",
+            "country": "Unknown",
+            "traffic_source": "direct"
+        }
+    },
+    "page_views": {
+        "/": 1
+    },
+    "page_engagement": {
+        "/": {
+            "views": 1,
+            "total_time": 2563.725392818451,
+            "avg_time": 2563.725392818451,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "d24fb4cf-ef3f-40b9-b9bc-423e36feb548"
+            ],
+            "interactions": 0
+        }
+    },
+    "real_time_data": {
+        "active_users": 1,
+        "current_page_views": {
+            "/": 1
+        },
+        "current_clicks": {},
+        "active_times": {
+            "labels": [
+                "00:00",
+                "01:00",
+                "02:00",
+                "03:00",
+                "04:00",
+                "05:00",
+                "06:00",
+                "07:00",
+                "08:00",
+                "09:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00",
+                "19:00",
+                "20:00",
+                "21:00",
+                "22:00",
+                "23:00"
+            ],
+            "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        },
+        "geographic_data": {
+            "Unknown": 1
+        },
+        "traffic_sources": {
+            "google_search": 0,
+            "linkedin": 0,
+            "instagram": 0,
+            "direct": 1,
+            "whatsapp": 0,
+            "other": 0
+        },
+        "search_visibility": {
+            "search_term_visits": {},
+            "total_impressions": 0,
+            "total_clicks": 0,
+            "average_position": 0
+        },
+        "device_types": {
+            "desktop": 1,
+            "mobile": 0,
+            "tablet": 0,
+            "unknown": 0
+        },
+        "bounce_rates": {},
+        "time_spent": {},
+        "events": []
+    }
+}
