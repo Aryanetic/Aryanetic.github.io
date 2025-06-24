@@ -1,8 +1,249 @@
 {
     "sessions": {
+        "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7": {
+            "start_time": 1749933783.176153,
+            "last_activity": 1749937996.6068523,
+            "pages": [
+                "/",
+                "/track",
+                "/analytics",
+                "/api/analytics",
+                "/project1",
+                "/project2",
+                "/project3",
+                "/project4",
+                "index",
+                "analytics"
+            ],
+            "total_time": 9416.428483247757,
+            "page_times": {
+                "/": 0.8656020164489746,
+                "/track": 15.151811599731445,
+                "/analytics": 0.2679727077484131,
+                "/api/analytics": 3175.6895508766174,
+                "/project1": 32.98340392112732,
+                "/project2": 518.8830981254578,
+                "/project3": 158.03485751152039,
+                "/project4": 259.1013102531433,
+                "index": 253.10243225097656,
+                "analytics": 5002.348443984985
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "referrer": null,
+            "device_type": "desktop",
+            "country": "Unknown"
+        },
+        "8ea93f71-64a6-441d-83c1-bcffa68f5c73": {
+            "start_time": 1749935222.4574592,
+            "last_activity": 1749937996.7451718,
+            "pages": [
+                "/",
+                "/project2",
+                "/project3",
+                "/project4",
+                "/project1"
+            ],
+            "total_time": 0,
+            "page_times": {},
+            "traffic_source": "direct"
+        },
+        "2fbdb88a-afce-480f-97bf-3f4a218113eb": {
+            "start_time": 1749981977.892287,
+            "last_activity": 1750018923.2674136,
+            "pages": [
+                "/",
+                "index",
+                "/track",
+                "/analytics",
+                "analytics",
+                "/api/analytics",
+                "/project4",
+                "/project2",
+                "/project3",
+                "/experience",
+                "/contact",
+                "contact",
+                "/about",
+                "about",
+                "/internship1",
+                "internship1",
+                "/internship2",
+                "internship2",
+                "/internship3",
+                "/skills",
+                "/internship4",
+                "/internship5",
+                "/experience1"
+            ],
+            "total_time": 37913.21710348129,
+            "page_times": {
+                "/": 0,
+                "index": 1.5520758628845215,
+                "/track": 13.517141342163086,
+                "/analytics": 0,
+                "analytics": 0.09481596946716309,
+                "/api/analytics": 121.30235123634338,
+                "/project4": 306.9065752029419,
+                "/project2": 24.256200075149536,
+                "/project3": 1519.123694896698,
+                "/experience": 5569.172572135925,
+                "/contact": 0,
+                "contact": 44.289414167404175,
+                "/about": 0,
+                "about": 2677.42084813118,
+                "/internship1": 0,
+                "internship1": 3689.675277233124,
+                "/internship2": 0,
+                "internship2": 8350.948304653168,
+                "/internship3": 27.329421281814575,
+                "/skills": 3220.6892619132996,
+                "/internship4": 1254.7788500785828,
+                "/internship5": 7822.9672157764435,
+                "/experience1": 3269.193083524704
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "referrer": null,
+            "device_type": "desktop",
+            "country": "Unknown"
+        },
+        "867f472f-9e5d-4de5-903f-ed8a2bbe9999": {
+            "start_time": 1749981984.3989706,
+            "last_activity": 1750003354.4965503,
+            "pages": [
+                "/",
+                "/project4",
+                "/project2",
+                "/project3",
+                "/skills"
+            ],
+            "total_time": 0,
+            "page_times": {},
+            "user_agent": null,
+            "referrer": null,
+            "device_type": null,
+            "country": "Unknown"
+        },
+        "1af86aab-00c7-4d80-9d5c-63e85e18304f": {
+            "start_time": 1750088776.1152449,
+            "last_activity": 1750106931.208477,
+            "pages": [
+                "/",
+                "index",
+                "/experience1",
+                "/internship1",
+                "internship1",
+                "/internship2",
+                "/project2",
+                "/internship3",
+                "/internship4",
+                "/internship5",
+                "/project1",
+                "/analytics",
+                "analytics",
+                "/api/analytics",
+                "/project3",
+                "/project4"
+            ],
+            "total_time": 18151.36645245552,
+            "page_times": {
+                "/": 0,
+                "index": 271.64448833465576,
+                "/experience1": 1654.2187013626099,
+                "/internship1": 0,
+                "internship1": 1792.723718881607,
+                "/internship2": 1959.7107691764832,
+                "/project2": 27.394179821014404,
+                "/internship3": 30.87223505973816,
+                "/internship4": 2266.55402469635,
+                "/internship5": 1283.4330542087555,
+                "/project1": 17.801034927368164,
+                "/analytics": 0,
+                "analytics": 0.20130252838134766,
+                "/api/analytics": 783.3309535980225,
+                "/project3": 6432.664881467819,
+                "/project4": 1630.8171083927155
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "referrer": null,
+            "device_type": "desktop",
+            "country": "Unknown"
+        },
+        "715842dc-a052-46dc-b0d1-7e154089c630": {
+            "start_time": 1750094454.7743614,
+            "last_activity": 1750105977.6719103,
+            "pages": [
+                "/project2",
+                "/project1",
+                "/project3",
+                "/project4"
+            ],
+            "total_time": 0,
+            "page_times": {},
+            "traffic_source": "direct"
+        },
+        "221470dc-5b33-45b1-9279-e2fc87e3a010": {
+            "start_time": 1750176594.855295,
+            "last_activity": 1750177152.7324827,
+            "pages": [
+                "/",
+                "index",
+                "/analytics",
+                "analytics",
+                "/api/analytics"
+            ],
+            "total_time": 557.3226244449615,
+            "page_times": {
+                "/": 0,
+                "index": 301.2496464252472,
+                "/analytics": 0,
+                "analytics": 0.3389110565185547,
+                "/api/analytics": 255.7340669631958
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "referrer": "http://127.0.0.1:5000/experience1",
+            "device_type": "desktop",
+            "country": "Unknown"
+        },
+        "fee4b170-4ce9-4b4c-992f-4009a5a64302": {
+            "start_time": 1750184078.6115484,
+            "last_activity": 1750186027.813139,
+            "pages": [
+                "/",
+                "index",
+                "/experience1",
+                "/internship1",
+                "internship1",
+                "/internship2",
+                "/internship3",
+                "/internship4",
+                "/internship5",
+                "/analytics",
+                "analytics",
+                "/project3"
+            ],
+            "total_time": 1948.3308081626892,
+            "page_times": {
+                "/": 0,
+                "index": 27.155521869659424,
+                "/experience1": 113.3380835056305,
+                "/internship1": 0,
+                "internship1": 21.549109935760498,
+                "/internship2": 19.449826955795288,
+                "/internship3": 20.926337242126465,
+                "/internship4": 14.154868841171265,
+                "/internship5": 734.4797580242157,
+                "/analytics": 0,
+                "analytics": 652.7578947544098,
+                "/project3": 344.5194070339203
+            },
+            "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
+            "referrer": null,
+            "device_type": "desktop",
+            "country": "Unknown"
+        },
         "d24fb4cf-ef3f-40b9-b9bc-423e36feb548": {
-            "start_time": 1750790584.998606,
-            "last_activity": 1750790584.998606,
+            "start_time": 1750269914.944688,
+            "last_activity": 1750269914.944688,
             "pages": [
                 "/"
             ],
@@ -16,16 +257,327 @@
         }
     },
     "page_views": {
-        "/": 1
+        "/": 407,
+        "/track": 8931,
+        "/analytics": 98,
+        "/api/analytics": 207,
+        "/project1": 17,
+        "/project2": 80,
+        "/project3": 43,
+        "/project4": 88,
+        "index": 192,
+        "analytics": 36,
+        "/experience": 47,
+        "/contact": 2,
+        "contact": 2,
+        "/about": 1,
+        "about": 1,
+        "/internship1": 61,
+        "internship1": 61,
+        "/internship2": 46,
+        "internship2": 21,
+        "/internship3": 34,
+        "/skills": 2,
+        "/internship4": 49,
+        "/internship5": 12,
+        "/experience1": 25
     },
     "page_engagement": {
         "/": {
-            "views": 1,
-            "total_time": 2563.725392818451,
-            "avg_time": 2563.725392818451,
+            "views": 393,
+            "total_time": 17.43220090866089,
+            "avg_time": 0.04446990027719615,
             "bounce_rate": 0,
             "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "8ea93f71-64a6-441d-83c1-bcffa68f5c73",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "867f472f-9e5d-4de5-903f-ed8a2bbe9999",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "221470dc-5b33-45b1-9279-e2fc87e3a010",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302",
                 "d24fb4cf-ef3f-40b9-b9bc-423e36feb548"
+            ],
+            "interactions": 0
+        },
+        "/track": {
+            "views": 8824,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb"
+            ],
+            "interactions": 0
+        },
+        "/analytics": {
+            "views": 82,
+            "total_time": 706.2375571727753,
+            "avg_time": 8.612653136253357,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "8ea93f71-64a6-441d-83c1-bcffa68f5c73",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "221470dc-5b33-45b1-9279-e2fc87e3a010",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "/api/analytics": {
+            "views": 178,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "221470dc-5b33-45b1-9279-e2fc87e3a010"
+            ],
+            "interactions": 0
+        },
+        "/project1": {
+            "views": 17,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "8ea93f71-64a6-441d-83c1-bcffa68f5c73",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "715842dc-a052-46dc-b0d1-7e154089c630"
+            ],
+            "interactions": 0
+        },
+        "/project2": {
+            "views": 80,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "8ea93f71-64a6-441d-83c1-bcffa68f5c73",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "867f472f-9e5d-4de5-903f-ed8a2bbe9999",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "715842dc-a052-46dc-b0d1-7e154089c630"
+            ],
+            "interactions": 0
+        },
+        "/project3": {
+            "views": 43,
+            "total_time": 8.50217318534851,
+            "avg_time": 0.1977249577988026,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "8ea93f71-64a6-441d-83c1-bcffa68f5c73",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "867f472f-9e5d-4de5-903f-ed8a2bbe9999",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "715842dc-a052-46dc-b0d1-7e154089c630",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "/project4": {
+            "views": 88,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "8ea93f71-64a6-441d-83c1-bcffa68f5c73",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "867f472f-9e5d-4de5-903f-ed8a2bbe9999",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "715842dc-a052-46dc-b0d1-7e154089c630"
+            ],
+            "interactions": 0
+        },
+        "index": {
+            "views": 192,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "221470dc-5b33-45b1-9279-e2fc87e3a010",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "analytics": {
+            "views": 36,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "f716a5a7-abe9-48ae-8a49-f05c7d2d24e7",
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "221470dc-5b33-45b1-9279-e2fc87e3a010",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "/experience": {
+            "views": 47,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb"
+            ],
+            "interactions": 0
+        },
+        "/contact": {
+            "views": 2,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb"
+            ],
+            "interactions": 0
+        },
+        "contact": {
+            "views": 2,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb"
+            ],
+            "interactions": 0
+        },
+        "/about": {
+            "views": 1,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb"
+            ],
+            "interactions": 0
+        },
+        "about": {
+            "views": 1,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb"
+            ],
+            "interactions": 0
+        },
+        "/internship1": {
+            "views": 61,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "internship1": {
+            "views": 61,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "/internship2": {
+            "views": 46,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "internship2": {
+            "views": 21,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb"
+            ],
+            "interactions": 0
+        },
+        "/internship3": {
+            "views": 34,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "/skills": {
+            "views": 2,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "867f472f-9e5d-4de5-903f-ed8a2bbe9999"
+            ],
+            "interactions": 0
+        },
+        "/internship4": {
+            "views": 49,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "/internship5": {
+            "views": 12,
+            "total_time": 0,
+            "avg_time": 0,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
+            ],
+            "interactions": 0
+        },
+        "/experience1": {
+            "views": 25,
+            "total_time": 6.592698574066162,
+            "avg_time": 0.2637079429626465,
+            "bounce_rate": 0,
+            "unique_visitors": [
+                "2fbdb88a-afce-480f-97bf-3f4a218113eb",
+                "1af86aab-00c7-4d80-9d5c-63e85e18304f",
+                "fee4b170-4ce9-4b4c-992f-4009a5a64302"
             ],
             "interactions": 0
         }
@@ -33,7 +585,30 @@
     "real_time_data": {
         "active_users": 1,
         "current_page_views": {
-            "/": 1
+            "/": 407,
+            "/track": 8931,
+            "/analytics": 98,
+            "/api/analytics": 207,
+            "/project1": 17,
+            "/project2": 80,
+            "/project3": 43,
+            "/project4": 88,
+            "index": 192,
+            "analytics": 36,
+            "/experience": 47,
+            "/contact": 2,
+            "contact": 2,
+            "/about": 1,
+            "about": 1,
+            "/internship1": 61,
+            "internship1": 61,
+            "/internship2": 46,
+            "internship2": 21,
+            "/internship3": 34,
+            "/skills": 2,
+            "/internship4": 49,
+            "/internship5": 12,
+            "/experience1": 25
         },
         "current_clicks": {},
         "active_times": {
@@ -64,57 +639,110 @@
                 "23:00"
             ],
             "values": [
+                32,
+                0,
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                2,
+                0,
+                0,
+                0,
+                0,
+                0,
+                4,
                 1,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0,
-                0
+                29
             ]
         },
         "geographic_data": {
-            "Unknown": 1
+            "Unknown": 10297
         },
         "traffic_sources": {
             "google_search": 0,
             "linkedin": 0,
             "instagram": 0,
-            "direct": 1,
+            "direct": 5,
             "whatsapp": 0,
             "other": 0
         },
         "search_visibility": {
-            "search_term_visits": {},
+            "google_rankings": {},
             "total_impressions": 0,
             "total_clicks": 0,
-            "average_position": 0
+            "average_position": 0,
+            "search_term_visits": {}
         },
         "device_types": {
-            "desktop": 1,
+            "desktop": 9998,
             "mobile": 0,
             "tablet": 0,
-            "unknown": 0
+            "null": 1,
+            "unknown": 191
         },
-        "bounce_rates": {},
-        "time_spent": {},
+        "bounce_rates": {
+            "/": 0.0,
+            "/track": 0.0,
+            "/analytics": 0.0,
+            "/api/analytics": 0.0,
+            "/project1": 0.0,
+            "/project2": 0.0,
+            "/project3": 0.0,
+            "/project4": 0.0,
+            "index": 0.0,
+            "analytics": 0.0,
+            "/experience": 0.0,
+            "/contact": 0.0,
+            "contact": 0.0,
+            "/about": 0.0,
+            "about": 0.0,
+            "/internship1": 0.0,
+            "internship1": 0.0,
+            "/internship2": 0.0,
+            "internship2": 0.0,
+            "/internship3": 0.0,
+            "/skills": 0.0,
+            "/internship4": 0.0,
+            "/internship5": 0.0,
+            "/experience1": 0.0
+        },
+        "time_spent": {
+            "/": 0.0,
+            "/track": 0.0,
+            "/analytics": 0.0,
+            "/api/analytics": 0.0,
+            "/project1": 0.0,
+            "/project2": 0.0,
+            "/project3": 0.0,
+            "/project4": 0.0,
+            "index": 0.0,
+            "analytics": 0.0,
+            "/experience": 0.0,
+            "/contact": 0.0,
+            "contact": 0.0,
+            "/about": 0.0,
+            "about": 0.0,
+            "/internship1": 0.0,
+            "internship1": 0.0,
+            "/internship2": 0.0,
+            "internship2": 0.0,
+            "/internship3": 0.0,
+            "/skills": 0.0,
+            "/internship4": 0.0,
+            "/internship5": 0.0,
+            "/experience1": 0.0
+        },
+        "user_flow": [],
         "events": []
     }
 }
