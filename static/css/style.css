@@ -4,10 +4,10 @@
     --secondary-color: #38bdf8;
     --accent-color: #22d3ee;
     --text-color: #1e293b;
-    --light-bg: #f8fafc;
+    --light-bg: #fbeee6;
     --white: #ffffff;
-    --gradient-1: linear-gradient(135deg, #2563eb 0%, #38bdf8 100%);
-    --gradient-2: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+    --gradient-1: linear-gradient(135deg, #af8e6f 0%, #fbeee6 100%);
+    --gradient-2: linear-gradient(135deg, #fbeee6 0%, #c39f7e 100%);
     --shadow-1: 0 8px 24px rgba(37, 99, 235, 0.08);
     --shadow-2: 0 2px 8px rgba(37, 99, 235, 0.06);
 }
