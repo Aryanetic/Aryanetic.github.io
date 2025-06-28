@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketing Analytics Project - Arya Ranjan</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -225,37 +225,39 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo-text">Arya Ranjan</a>
+            <a href="index.html" class="logo-text">Arya Ranjan</a>
             <div class="nav-links">
-                <a href="/"><i class="fas fa-home"></i> Home</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
+                <a href="index.html#about"><i class="fas fa-user"></i> About</a>
+                <div class="dropdown" id="workDropdown">
+                    <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
                     <div class="dropdown-content">
-                        <div class="menu-title">Projects</div>
-                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
-                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
-                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
-                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
-                    <div class="dropdown-content">
-                        <div class="menu-title">Experience</div>
-                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
-                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
-                        <div class="submenu">
-                            <div class="menu-title">Internships</div>
-                            <a href="/internship1.html">Internship 1</a>
-                            <a href="/internship2.html">Internship 2</a>
-                            <a href="/internship3.html">Internship 3</a>
-                            <a href="/internship4.html">Internship 4</a>
-                            <a href="/internship5.html">Internship 5</a>
+                        <div class="menu-title">Select Category</div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'internshipSubmenu')">
+                            <i class="fas fa-graduation-cap"></i> Internships
+                        </a>
+                        <div class="submenu" id="internshipSubmenu">
+                            <div class="menu-title">Internship Programs</div>
+                            <a href="internship1.html"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
+                            <a href="internship2.html"><i class="fas fa-building"></i> Graduate Training Program</a>
+                            <a href="internship3.html"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
+                            <a href="internship4.html"><i class="fas fa-users"></i> SUPA Internship</a>
+                            <a href="internship5.html"><i class="fas fa-handshake"></i> Customer Relationship</a>
                         </div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
+                            <i class="fas fa-project-diagram"></i> Projects
+                        </a>
+                        <div class="submenu" id="projectSubmenu">
+                            <div class="menu-title">Project Portfolio</div>
+                            <a href="project1.html"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
+                            <a href="project2.html"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
+                            <a href="project3.html"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
+                            <a href="project4.html"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
+                        </div>
+                        <a href="experience.html"><i class="fas fa-building"></i> Work Experience</a>
                     </div>
                 </div>
-                <a href="/skills.html"><i class="fas fa-tools"></i> Skills</a>
-                <a href="/analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="analytics.html" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
             </div>
         </div>
     </nav>
@@ -286,7 +288,7 @@
                 <h2><i class="fas fa-chart-line"></i> Project Overview</h2>
             </div>
             <div class="section-body">
-                <p>A comprehensive marketing project focused on improving campaign performance and ROI through data-driven insights and strategic planning. In this project, I worked with my team to develop the marketing strategy for a hypothetical brand — Dark Side. We planned the strategy in three distinct phases: pre-launch, during launch, and post-launch.</p>
+                <p>A comprehensive marketing analytics project focused on improving campaign performance and ROI through data-driven insights and strategic planning. In this project, I worked with my team to develop the marketing strategy for a hypothetical brand — Dark Side. We planned the strategy in three distinct phases: pre-launch, during launch, and post-launch.</p>
             </div>
         </section>
 
@@ -311,7 +313,7 @@
                     <ul class="phase-list">
                         <li>Launch Event</li>
                         <li>Influencer Marketing</li>
-                        <li>pr event (Public relation event)</li>
+                        <li>PR</li>
                         <li>Media</li>
                         <li>Event Marketing</li>
                     </ul>
@@ -320,10 +322,10 @@
                     <h3><i class="fas fa-flag-checkered"></i> Post-Launch</h3>
                     <ul class="phase-list">
                         <li>PR</li>
-                        <li>Search engine optimization</li>
+                        <li>SEO</li>
                         <li>Social Media Marketing</li>
                         <li>Word of Mouth</li>
-                        <li>SEM (Search engine marketing)</li>
+                        <li>SME</li>
                     </ul>
                 </div>
             </div>
@@ -431,7 +433,7 @@
     </div>
 
     <!-- Back to Home Button -->
-    <a href="/" class="back-button">
+    <a href="index.html" class="back-button">
         <i class="fas fa-home"></i>
         Back to Home
     </a>
@@ -499,6 +501,167 @@
         }
     </style>
 
-    <script src="/static/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove loading overlay
+            const loadingOverlay = document.querySelector('.loading-overlay');
+            setTimeout(() => {
+                loadingOverlay.style.opacity = '0';
+                setTimeout(() => loadingOverlay.style.display = 'none', 500);
+            }, 500);
+
+            // Progress bar
+            const progressBar = document.querySelector('.progress-bar');
+            window.addEventListener('scroll', () => {
+                const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (window.scrollY / windowHeight) * 100;
+                progressBar.style.transform = `scaleX(${progress / 100})`;
+            });
+
+            // Navbar scroll effect
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Section navigation
+            const sections = document.querySelectorAll('section');
+            const sectionDots = document.querySelectorAll('.section-nav-dot');
+
+            const observerOptions = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        sectionDots.forEach(dot => {
+                            if (dot.dataset.section === sectionId) {
+                                dot.classList.add('active');
+                            } else {
+                                dot.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
+
+            // Section navigation click
+            sectionDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const sectionId = dot.dataset.section;
+                    document.getElementById(sectionId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Animate tags
+            document.querySelectorAll('.tag').forEach((tag, index) => {
+                tag.style.animation = `fadeInRight 0.5s ease forwards ${index * 0.2}s`;
+            });
+
+            // Animate feature cards
+            document.querySelectorAll('.feature-item').forEach((card, index) => {
+                card.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.2}s`;
+                
+                // Add hover effect for icons
+                const icon = card.querySelector('i');
+                card.addEventListener('mouseenter', () => {
+                    icon.style.transform = 'scale(1.2) rotate(360deg)';
+                    icon.style.transition = 'transform 0.4s ease';
+                });
+                card.addEventListener('mouseleave', () => {
+                    icon.style.transform = 'scale(1) rotate(0)';
+                });
+            });
+
+            // Animate result numbers with counting effect
+            document.querySelectorAll('.result-number').forEach((number, index) => {
+                const finalValue = parseInt(number.textContent);
+                let currentValue = 0;
+                const duration = 2000;
+                const interval = 50;
+                const steps = duration / interval;
+                const increment = finalValue / steps;
+
+                number.textContent = '0%';
+                number.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.2}s`;
+
+                setTimeout(() => {
+                    const counter = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= finalValue) {
+                            currentValue = finalValue;
+                            clearInterval(counter);
+                        }
+                        number.textContent = Math.round(currentValue) + '%';
+                    }, interval);
+                }, index * 200);
+            });
+
+            // Add scroll reveal effect for sections
+            const contentObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.content-section').forEach(section => {
+                contentObserver.observe(section);
+            });
+        });
+
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdown = document.getElementById('workDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        function toggleSubmenu(event, submenuId) {
+            event.preventDefault();
+            const submenu = document.getElementById(submenuId);
+            submenu.classList.toggle('active');
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(event.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 

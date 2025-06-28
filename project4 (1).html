@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Entrepreneurship & Business Planning Project - Arya Ranjan</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="static/css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -515,43 +515,46 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="/" class="logo-text">Arya Ranjan</a>
+            <a href="index.html" class="logo-text">Arya Ranjan</a>
             <div class="nav-links">
-                <a href="/"><i class="fas fa-home"></i> Home</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-trigger"><i class="fas fa-briefcase"></i> Projects</a>
+                <a href="index.html" class="home-link"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html#about"><i class="fas fa-user"></i> About</a>
+                <div class="dropdown" id="workDropdown">
+                    <a href="#" onclick="toggleDropdown(event)"><i class="fas fa-briefcase"></i> My Work</a>
                     <div class="dropdown-content">
-                        <div class="menu-title">Projects</div>
-                        <a href="/project1.html"><i class="fas fa-code"></i> Project 1</a>
-                        <a href="/project2.html"><i class="fas fa-code"></i> Project 2</a>
-                        <a href="/project3.html"><i class="fas fa-code"></i> Project 3</a>
-                        <a href="/project4.html"><i class="fas fa-code"></i> Project 4</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-trigger"><i class="fas fa-laptop-code"></i> Experience</a>
-                    <div class="dropdown-content">
-                        <div class="menu-title">Experience</div>
-                        <a href="/experience.html"><i class="fas fa-building"></i> Work Experience</a>
-                        <a href="/internship.html" class="has-submenu"><i class="fas fa-graduation-cap"></i> Internships</a>
-                        <div class="submenu">
-                            <div class="menu-title">Internships</div>
-                            <a href="/internship1.html">Internship 1</a>
-                            <a href="/internship2.html">Internship 2</a>
-                            <a href="/internship3.html">Internship 3</a>
-                            <a href="/internship4.html">Internship 4</a>
-                            <a href="/internship5.html">Internship 5</a>
+                        <div class="menu-title">Select Category</div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'internshipSubmenu')">
+                            <i class="fas fa-graduation-cap"></i> Internships
+                        </a>
+                        <div class="submenu" id="internshipSubmenu">
+                            <div class="menu-title">Internship Programs</div>
+                            <a href="internship1.html"><i class="fas fa-laptop"></i> Digital Marketing Internship</a>
+                            <a href="internship2.html"><i class="fas fa-building"></i> Graduate Training Program</a>
+                            <a href="internship3.html"><i class="fas fa-hashtag"></i> Social Media Marketing</a>
+                            <a href="internship4.html"><i class="fas fa-users"></i> SUPA Internship</a>
+                            <a href="internship5.html"><i class="fas fa-handshake"></i> Customer Relationship</a>
                         </div>
+                        <a href="#" class="has-submenu" onclick="toggleSubmenu(event, 'projectSubmenu')">
+                            <i class="fas fa-project-diagram"></i> Projects
+                        </a>
+                        <div class="submenu" id="projectSubmenu">
+                            <div class="menu-title">Project Portfolio</div>
+                            <a href="project1.html"><i class="fas fa-bullhorn"></i> Integrated Marketing Campaign</a>
+                            <a href="project2.html"><i class="fas fa-chart-line"></i> Marketing Analytics Project</a>
+                            <a href="project3.html"><i class="fas fa-digital-tachograph"></i> Digital Transformation</a>
+                            <a href="project4.html"><i class="fas fa-lightbulb"></i> Entrepreneurship Project</a>
+                        </div>
+                        <a href="experience.html"><i class="fas fa-building"></i> Work Experience</a>
                     </div>
                 </div>
-                <a href="/skills.html"><i class="fas fa-tools"></i> Skills</a>
-                <a href="/analytics.html"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="index.html#contact"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="analytics.html" class="analytics-link"><i class="fas fa-chart-line"></i> Analytics</a>
             </div>
         </div>
     </nav>
 
     <!-- Back to Home Button -->
-    <a href="/" class="back-button">
+    <a href="index.html" class="back-button">
         <i class="fas fa-home"></i>
         Back to Home
     </a>
@@ -573,7 +576,7 @@
                 <h2><i class="fas fa-info-circle"></i> Project Overview</h2>
             </div>
             <div class="section-body">
-                <p class="animated-text">In this project, I developed a comprehensive, data-driven business plan to manage the marketing, finance, and operational functions of a startup specializing in GI-tagged products. The plan was designed within a fixed budget and provided detailed strategies and activity roadmaps to support the company's growth over the next three years.</p>
+                <p class="animated-text">In this project, I developed a comprehensive business plan for a sustainable fashion brand, conducting market research, financial analysis, and creating a detailed marketing strategy.</p>
             </div>
         </section>
 
@@ -639,7 +642,7 @@
                         <i class="fas fa-trophy"></i>
                     </div>
                     <h3>Business Plan Recognition</h3>
-                    <p>The business plan was recognized as one of the top 10 plans in the college entrepreneurship competition, demonstrating strong market potential and financial viability.</p>
+                    <p>The business plan was recognized as one of the top 5 plans in the college entrepreneurship competition, demonstrating strong market potential and financial viability.</p>
                 </div>
             </div>
         </section>
@@ -647,7 +650,7 @@
         <!-- Project Details Button Section -->
         <section class="content-section fade-in view-project-section">
             <div class="view-project-container">
-                <a href="https://drive.google.com/file/d/1qPc8z8yLwd8_DQCTei9h8IqY-EDCqu-5/view?usp=drive_link" 
+                <a href="https://drive.google.com/file/d/1uV7lkS5VF0xQffVxMZjeid5GUa5oA06Y/view?usp=drive_link" 
                    target="_blank" 
                    class="view-project-button hover-effect">
                     <span>View Complete Project Details</span>
